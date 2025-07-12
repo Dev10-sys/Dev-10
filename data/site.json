@@ -1,0 +1,403 @@
+{
+  "hero": {
+    "name": "Dev",
+    "role": "Systems & Secure Infrastructure",
+    "tagline": "Dev - Systems • Security • Infrastructure",
+    "mainHeading": "Hi, I'm Dev.",
+    "subline": "Software Engineer & Open Source Contributor.",
+    "primaryCta": {
+      "label": "Explore Engineering Work",
+      "url": "/projects"
+    },
+    "secondaryCta": {
+      "label": "View Source Code",
+      "url": "https://github.com/Dev10-sys"
+    },
+    "animationIntensity": "medium"
+  },
+  "profile": {
+    "location": "Bangalore, India",
+    "education": "System Design & Security Hardening",
+    "shortBio": "B.Tech CS with specialization in AI/ML.",
+    "longBio": "I am a Software and System Engineer based in Bangalore, India. I specialize in full-stack development, Linux infrastructure, and blockchain protocols. I officially contributed to Sugar Labs through Google Summer of Code (GSoC), and to WEB3J (an Ethereum library) through the LFX Mentorship program.",
+    "skills": {
+      "Systems & Infrastructure": [
+        "Linux",
+        "Linux Systems",
+        "Wayland / X11",
+        "D-Bus",
+        "GTK (Linux GUI toolkit)",
+        "CLI Tools & Parsing",
+        "Execution Engines / Schedulers"
+      ],
+      "Security": [
+        "Secure Software Supply Chain (RSTUF)",
+        "Container Security (Non-root Execution)",
+        "API Validation & Hardening",
+        "Runtime Sanity Checks"
+      ],
+      "Blockchain": [
+        "Ethereum Protocol",
+        "JSON-RPC",
+        "Web3j (Protocol Client)",
+        "Transaction Encoding (EIP-4844)",
+        "Wallet Integration (Lightning / NWC)"
+      ],
+      "Languages": [
+        "Java (Protocol-level)",
+        "TypeScript/JS",
+        "Python",
+        "C/C++",
+        "SQL",
+        "Bash"
+      ],
+      "Frameworks": [
+        "Web Development",
+        "Full Stack",
+        "Node.js",
+        "Express.js",
+        "React/Next.js",
+        "REST APIs",
+        "Spring Boot"
+      ],
+      "Databases": [
+        "PostgreSQL",
+        "Redis",
+        "Supabase"
+      ],
+      "Tools": [
+        "Git",
+        "Docker",
+        "Kubernetes",
+        "CI/CD & GitHub Actions",
+        "Postman / API Testing"
+      ]
+    },
+    "headshot": {
+      "path": "/images/profile.png",
+      "alt": "Professional photo of Dev10-sys"
+    }
+  },
+  "projects": [
+    {
+      "title": "VyapaarAI",
+      "description": "Production-grade, asynchronous order extraction and revenue recovery system processing natural Hinglish WhatsApp conversation logs into structured JSON schemas.",
+      "tech": [
+        "Claude 3.5 Sonnet",
+        "BullMQ",
+        "Redis",
+        "Drizzle ORM",
+        "TypeScript",
+        "PDFKit"
+      ],
+      "highlights": [
+        "Advanced Hinglish parsing extracts units, quantities, and customer intent with LLMs",
+        "Decoupled Express API and worker tiers connected via BullMQ + Redis task queues",
+        "Generates instant, GST-compliant PDF invoices with detailed tax breakdowns using PDFKit",
+        "Redacts sensitive user details (PII) before external API calls, maintaining data isolation",
+        "Monitors application state with Pino structured logging, Sentry errors, and Rate Limits"
+      ],
+      "repo": "https://github.com/Dev10-sys/VyapaarAI",
+      "live": "",
+      "image": {
+        "path": "",
+        "alt": "VyapaarAI System Dashboard"
+      }
+    },
+    {
+      "title": "NWC Tester",
+      "description": "Full-stack Nostr Wallet Connect (NWC) protocol debugging and testing workbench for developers. Validates real-time relay handshakes and verifies JSON-RPC request/response pipelines.",
+      "tech": [
+        "Nostr Protocol",
+        "Lightning Network",
+        "JSON-RPC",
+        "Bitcoin Connect",
+        "Real-time Logging"
+      ],
+      "highlights": [
+        "The 'Ultimate Testing Lab' for developers building Nostr-integrated wallets & apps",
+        "Full-spectrum protocol validation for get_balance, pay_invoice, and keysend commands",
+        "Live Execution Console for monitoring real-time relay handshakes and JSON-RPC responses",
+        "Direct wallet onboarding via Bitcoin Connect (Alby) or secure NWC connection strings",
+        "Automated transaction logging for debugging protocol edge cases in production environments"
+      ],
+      "repo": "https://github.com/Dev10-sys/nwc-tester",
+      "live": "https://nwc-tester.vercel.app",
+      "image": {
+        "path": "",
+        "alt": "NWC Tester Laboratory Interface"
+      }
+    },
+    {
+      "title": "BTC HashFrame",
+      "description": "Client-side cryptographic validation and QR serialization engine. Validates and generates BIP21 unified payment URIs, partially signed Bitcoin transactions (PSBT), and output descriptors entirely in-browser.",
+      "tech": [
+        "Next.js 15",
+        "TypeScript",
+        "Cryptographic Validation",
+        "Tailwind",
+        "Client-Side Encoding"
+      ],
+      "highlights": [
+        "Implemented full client-side QR generation without server transmission",
+        "Added validation layer for BIP21, PSBT, descriptors",
+        "Built structured encoding engine with strict TypeScript typing",
+        "Added error correction and QR sizing control",
+        "Designed secure UI workflow to prevent accidental exposure"
+      ],
+      "repo": "https://github.com/Dev10-sys/btc-hashframe",
+      "live": "https://btc-hashframe.vercel.app",
+      "image": {
+        "path": "",
+        "alt": ""
+      }
+    },
+    {
+      "title": "SHINRA Labs",
+      "description": "Asynchronous AI data annotation pipeline and task lifecycle orchestration platform. Implements role-based workflows for enterprise labeling teams, dynamic dataset marketplace models, and Supabase real-time sync.",
+      "tech": [
+        "React",
+        "Supabase",
+        "PostgreSQL",
+        "Tailwind",
+        "Realtime Systems"
+      ],
+      "highlights": [
+        "Modular frontend architecture using React + Vite",
+        "Role-based workflow system (Company / Freelancer model)",
+        "Dataset marketplace structure (DataSetu model)",
+        "Supabase backend integration (Auth, Storage, Realtime)",
+        "End-to-end task pipeline simulation for B2B AI use cases"
+      ],
+      "repo": "https://github.com/Dev10-sys/shinra-labs",
+      "live": "",
+      "image": {
+        "path": "",
+        "alt": ""
+      }
+    }
+  ],
+  "openSource": {
+    "summary": "I actively contribute to various open source organizations.",
+    "stats": {
+      "totalPRs": "100+",
+      "mergedPRs": "100+",
+      "orgs": "11+",
+      "languages": [
+        "Go",
+        "Python",
+        "TypeScript",
+        "JavaScript"
+      ]
+    },
+    "organizations": [
+      {
+        "name": "SugarLabs",
+        "logo": "https://github.com/sugarlabs.png",
+        "tagline": "Linux Desktop Environment - Python / GTK",
+        "color": "#10b981",
+        "role": "Core contributor to Sugar Learning Environment.",
+        "contributions": [
+          "Fixed datastore restart handling after DBus disconnect",
+          "Improved clipboard handling when multiple items exist",
+          "Journal UX fixes including range selection & search focus preservation",
+          "Control panel write optimization to reduce excessive disk writes",
+          "Modal handling improvements in ActivityChooser"
+        ],
+        "impact": "Improved system stability, input reliability, and UI behavior across core desktop components.",
+        "tech": [
+          "Python",
+          "GTK",
+          "D-Bus"
+        ],
+        "link": "https://github.com/sugarlabs/sugar/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+      },
+      {
+        "name": "Web3j (LFDT)",
+        "logo": "https://github.com/web3j.png",
+        "tagline": "Blockchain protocol fixes and JVM-level reliability improvements",
+        "color": "#3b82f6",
+        "role": "Core Contributor",
+        "contributions": [
+          "Fixed EIP-4844 transaction encoding impacting signing correctness",
+          "Resolved ClassLoader memory leak in async execution layer",
+          "Improved type safety in RPC response handling"
+        ],
+        "impact": "Improved protocol reliability and system performance for Ethereum-based JVM applications.",
+        "links": [
+          "https://github.com/LFDT-web3j/web3j/pull/2257",
+          "https://github.com/LFDT-web3j/web3j/pull/2255",
+          "https://github.com/LFDT-web3j/web3j/pull/2254"
+        ],
+        "tech": [
+          "Java",
+          "Ethereum",
+          "EIP-4844"
+        ],
+        "link": "https://github.com/LFDT-web3j/web3j/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+      },
+      {
+        "name": "OpenSSF (RSTUF)",
+        "logo": "https://github.com/repository-service-tuf.png",
+        "tagline": "Production security hardening across distributed services",
+        "color": "#0ea5e9",
+        "role": "Contributor",
+        "contributions": [
+          "Enforced non-root container execution across distributed microservices",
+          "Strengthened runtime security posture for package distribution pipelines",
+          "Improved API validation layers and service isolation"
+        ],
+        "impact": "Hardened software supply chain security for microservices and distribution pipelines.",
+        "links": [
+          "https://github.com/repository-service-tuf/repository-service-tuf/pull/950",
+          "https://github.com/repository-service-tuf/repository-service-tuf/pull/934",
+          "https://github.com/repository-service-tuf/repository-service-tuf-api/pull/919",
+          "https://github.com/repository-service-tuf/repository-service-tuf-api/pull/916",
+          "https://github.com/repository-service-tuf/repository-service-tuf-worker/pull/854",
+          "https://github.com/repository-service-tuf/repository-service-tuf-worker/pull/850",
+          "https://github.com/repository-service-tuf/helm-charts/pull/57",
+          "https://github.com/repository-service-tuf/helm-charts/pull/56"
+        ],
+        "tech": [
+          "Python",
+          "Docker",
+          "Security"
+        ],
+        "link": "https://github.com/repository-service-tuf/repository-service-tuf/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+      },
+      {
+        "name": "Hyperledger Cacti",
+        "logo": "https://github.com/hyperledger.png",
+        "tagline": "Enterprise blockchain infra, dependency security",
+        "color": "#22c55e",
+        "role": "Contributor",
+        "contributions": [
+          "Fixed docker test crash loops affecting CI stability",
+          "Updated vulnerable dependencies and hardened infra setup",
+          "Contributed protocol-level feature (ERC6909 token support)"
+        ],
+        "impact": "Stabilized enterprise blockchain infrastructure and expanded protocol support.",
+        "links": [
+          "https://github.com/hyperledger-cacti/cacti/pull/4183",
+          "https://github.com/hyperledger-cacti/cacti/pull/4182",
+          "https://github.com/hyperledger-cacti/cacti/pull/4181",
+          "https://github.com/hyperledger-cacti/cacti/pull/4180",
+          "https://github.com/hyperledger-cacti/cacti/pull/4179",
+          "https://github.com/hyperledger-cacti/cacti/pull/4176"
+        ],
+        "tech": [
+          "TypeScript",
+          "Docker",
+          "Blockchain"
+        ],
+        "link": "https://github.com/hyperledger-cacti/cacti/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+      },
+      {
+        "name": "Hyperledger Identus",
+        "logo": "https://github.com/hyperledger.png",
+        "tagline": "Enterprise SSI and Verifiable Credentials SDK",
+        "color": "#6366f1",
+        "role": "Contributor",
+        "contributions": [
+          "Fixed runtime errors in DIDComm invitation tests",
+          "Corrected UUID module resolution for strict ES imports"
+        ],
+        "impact": "Restored test suite stability for OutOfBandInvitation flows in the TypeScript SDK.",
+        "tech": [
+          "TypeScript",
+          "SSI",
+          "DIDComm"
+        ],
+        "links": [
+          "https://github.com/hyperledger-identus/sdk-ts/pull/591"
+        ],
+        "link": "https://github.com/hyperledger-identus/sdk-ts/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+      },
+      {
+        "name": "SONiC",
+        "logo": "https://github.com/sonic-net.png",
+        "tagline": "Network infrastructure testing",
+        "color": "#f43f5e",
+        "role": "Contributor",
+        "contributions": [
+          "Enabled IPv6-only environment testing for COPP",
+          "Extended VOQ test coverage for single-ASIC systems"
+        ],
+        "impact": "Enhanced networking infrastructure test coverage for cloud environments.",
+        "links": [
+          "https://github.com/sonic-net/sonic-mgmt/pull/23181",
+          "https://github.com/sonic-net/sonic-mgmt/pull/23171"
+        ],
+        "tech": [
+          "Python",
+          "IPv6",
+          "Networking"
+        ],
+        "link": "https://github.com/sonic-net/sonic-mgmt/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+      },
+      {
+        "name": "Chicago Pediatric Cancer Data Commons",
+        "logo": "https://github.com/chicagopcdc.png",
+        "tagline": "Healthcare ML pipeline fixes",
+        "color": "#eab308",
+        "role": "Contributor",
+        "contributions": [
+          "Fixed execution issues in ML pipeline notebooks",
+          "Built dynamic clinical trial matching dashboard"
+        ],
+        "impact": "Streamlined healthcare ML workflows and improved clinical trial patient matching.",
+        "links": [
+          "https://github.com/chicagopcdc/Automated-Matching-of-Patients-to-Clinical-Trials/pull/4",
+          "https://github.com/chicagopcdc/Automated-Matching-of-Patients-to-Clinical-Trials/pull/3"
+        ],
+        "tech": [
+          "Python",
+          "Jupyter",
+          "Machine Learning"
+        ],
+        "link": "https://github.com/chicagopcdc/Automated-Matching-of-Patients-to-Clinical-Trials/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+      },
+      {
+        "name": "CHAOSS",
+        "logo": "https://github.com/chaoss.png",
+        "tagline": "Open Source Metrics & Data Science",
+        "color": "#a855f7",
+        "role": "Contributor",
+        "contributions": [
+          "Bugzilla REST pagination failure handling",
+          "Contributor repository map improvements",
+          "Sustainability documentation clarity fixes"
+        ],
+        "impact": "Improved robustness of open source health analytics tooling used across community metrics research.",
+        "links": [
+          "https://github.com/chaoss/grimoirelab-perceval/pull/885",
+          "https://github.com/chaoss/community/pull/765"
+        ],
+        "tech": [
+          "Python",
+          "Data Analytics",
+          "API"
+        ],
+        "link": "https://github.com/chaoss/grimoirelab-perceval/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+      }
+    ]
+  },
+  "contact": {
+    "email": "mailto:dev10.sys@gmail.com",
+    "github": "https://github.com/Dev10-sys",
+    "linkedin": "https://linkedin.com/in/dev10-sys",
+    "twitter": "https://x.com/Dev10_shadow"
+  },
+  "seo": {
+    "title": "Dev10-sys - Software Developer",
+    "description": "Software Developer with a focus on systems, security, and open source infrastructure.",
+    "ogImage": {
+      "path": "/images/og.jpg",
+      "alt": "Portfolio preview image"
+    }
+  },
+  "theme": {
+    "accent": "#f7931a",
+    "btcSymbols": true
+  }
+}

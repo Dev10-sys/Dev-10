@@ -1,0 +1,26 @@
+[
+  {
+    "year": "2025",
+    "role": "Google Summer of Code Contributor",
+    "company": "OWASP Foundation",
+    "description": "Developed AI-driven blockchain rewards system on Bitcoin Runes and implemented staking logic for BACON tokens, boosting engagement by 35%."
+  },
+  {
+    "year": "2025",
+    "role": "Summer of Bitcoin Contributor",
+    "company": "Unchained Capital",
+    "description": "Enhanced Caravan multisig with BC-UR 2.0 animated QR signing support and PSBT signature tracking, reducing signing friction by 60%."
+  },
+  {
+    "year": "2024-2025",
+    "role": "Full-Stack App Developer",
+    "company": "Sarada Analytics",
+    "description": "Designed and built full-stack mobile application using Flutter, boosting engagement by 20% and improving backend response time by 15%."
+  },
+  {
+    "year": "2024",
+    "role": "Backend Developer Intern",
+    "company": "SearchAI",
+    "description": "Upgraded Kurento-based video conferencing system serving 200+ users and deployed scalable microservices on AWS/GCP."
+  }
+]
