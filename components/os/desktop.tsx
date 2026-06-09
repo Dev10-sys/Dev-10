@@ -100,7 +100,10 @@ export function Desktop() {
             isActive={activeWindow === id}
             onFocus={() => setActiveWindow(id)}
             defaultSize={app.defaultSize}
-            defaultPosition={{ x: 40 + (openWindows.indexOf(id) * 20), y: 40 + (openWindows.indexOf(id) * 20) }}
+            defaultPosition={{ 
+              x: typeof window !== 'undefined' ? (app.id === "terminal" ? window.innerWidth / 2 - 300 : window.innerWidth * 0.1) + (openWindows.indexOf(id) * 20) : 40, 
+              y: typeof window !== 'undefined' ? (app.id === "terminal" ? window.innerHeight / 2 - 200 : window.innerHeight * 0.1) + (openWindows.indexOf(id) * 20) : 40 
+            }}
           >
             {app.content}
           </Window>

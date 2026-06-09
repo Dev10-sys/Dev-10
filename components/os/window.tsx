@@ -42,7 +42,7 @@ export function Window({
         : { opacity: 1, scale: 1, width: defaultSize.width, height: defaultSize.height, x: defaultPosition.x, y: defaultPosition.y }}
       transition={{ type: "spring", bounce: 0, duration: 0.3 }}
       onMouseDown={onFocus}
-      className={`absolute gtk-window shadow-2xl ${isActive ? "z-40 ring-1 ring-white/10" : "z-30"}`}
+      className={`absolute top-0 left-0 gtk-window shadow-2xl ${isActive ? "z-40 ring-1 ring-white/10" : "z-30"}`}
       style={{ touchAction: "none" }}
     >
       {/* Header Bar */}
