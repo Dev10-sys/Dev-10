@@ -5,115 +5,73 @@ import { Skills } from "@/components/skills";
 import { ProjectsPreview } from "@/components/projects-preview";
 import { OpenSourcePreview } from "@/components/open-source-preview";
 import { ExtendedCapabilities } from "@/components/extended-capabilities";
-import { ImportantLinks } from "@/components/links";
 import { ContactForm } from "@/components/contact-form";
+import { ImportantLinks } from "@/components/links";
 
 export default function Page() {
   return (
-    <main className="bg-transparent text-foreground selection:bg-primary/30 selection:text-primary-foreground min-h-screen relative">
-      {/* Global Bitcoin Gradient Atmosphere */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-20">
-        <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-[#F7931A]/[0.03] blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-[#F7931A]/[0.03] blur-[120px] rounded-full" />
-        <div className="absolute top-[40%] right-[10%] w-[40%] h-[40%] bg-[#F7931A]/[0.02] blur-[150px] rounded-full" />
-      </div>
-
-      <Navbar />
-      <Hero />
+    <main className="bg-background text-foreground min-h-screen relative font-sans selection:bg-primary/20 selection:text-primary">
       
-      <section id="about" className="w-full px-4 py-16 md:py-24 border-t border-primary/20 relative bg-transparent">
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-        <div className="absolute top-0 left-1/4 w-1/2 h-full bg-[#F7931A]/[0.02] blur-[120px] -z-10 pointer-events-none" />
+      {/* Global animated scanline */}
+      <div className="scanline-overlay" />
+
+      {/* Global grain/noise overlay for texture */}
+      <div className="absolute inset-0 noise-bg pointer-events-none z-0" />
+
+      {/* Navbar with floating dynamic pill */}
+      <Navbar />
+
+      <Hero />
+
+      <section id="about" className="relative border-t border-border/40 py-12">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent opacity-50 pointer-events-none" />
         <About />
       </section>
 
-      <section id="skills" className="w-full px-4 py-16 md:py-24 bg-transparent border-t border-primary/20 relative">
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#F7931A]/[0.01] to-transparent -z-10 pointer-events-none" />
+      <section id="skills" className="relative border-t border-border/40 py-12">
         <Skills />
       </section>
 
-      <section id="projects" className="w-full px-4 py-16 md:py-24 border-t border-primary/20 relative bg-transparent">
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-        <div className="absolute bottom-0 right-1/4 w-1/3 h-1/2 bg-[#F7931A]/[0.03] blur-[100px] -z-10 pointer-events-none" />
+      <section id="projects" className="relative border-t border-border/40 py-12">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent opacity-50 pointer-events-none" />
         <ProjectsPreview />
       </section>
 
-      <section id="open-source" className="w-full bg-transparent border-t border-primary/20 relative">
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-        <div className="absolute top-1/2 left-0 w-full h-1/2 bg-[#F7931A]/[0.01] blur-[150px] -z-10 pointer-events-none" />
+      <section id="open-source" className="relative border-t border-border/40 py-12">
         <OpenSourcePreview />
       </section>
 
-      <section id="extended" className="w-full bg-transparent border-t border-primary/20 relative">
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <section id="extended" className="relative border-t border-border/40 py-12">
         <ExtendedCapabilities />
       </section>
 
-      <section id="contact" className="w-full px-4 py-16 md:py-24 border-t border-primary/20 bg-transparent relative">
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-        <div className="absolute inset-0 bg-radial-gradient from-[#F7931A]/5 to-transparent -z-10 pointer-events-none opacity-20" />
-        <div className="space-y-24">
+      <section id="contact" className="relative border-t border-border/40 pt-12 pb-24">
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent opacity-30 pointer-events-none" />
+        <div className="space-y-12">
           <ContactForm />
           <ImportantLinks />
         </div>
       </section>
 
-      <footer className="relative border-t border-border/40 py-24 overflow-hidden bg-muted/5">
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full" />
-        </div>
-
-        <div className="max-w-6xl mx-auto px-4 text-center space-y-12">
-          {/* Availability Badge - Refined Tech Visuals */}
-          <div className="flex justify-center">
-            <div className="inline-flex items-center gap-4 px-8 py-3 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-xl group relative overflow-hidden transition-all hover:bg-white/[0.05] hover:border-primary/40">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-              
-              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
-                <div className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-40"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                </div>
-                STATUS: ACTIVE
-              </div>
-              <div className="h-4 w-px bg-white/10" />
-              <span className="text-sm font-bold tracking-tight text-foreground/80 group-hover:text-foreground transition-colors">
-                Open to freelance, contract, and early-stage startup opportunities.
-              </span>
-            </div>
+      <footer className="relative border-t border-border/40 py-16 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col items-center text-center space-y-8 relative z-10">
+          <div className="os-window px-8 py-4 inline-flex items-center gap-4">
+            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/80">
+              System Online · Open to Opportunities
+            </span>
           </div>
 
-          <div className="space-y-4">
-            <p className="text-xl font-medium text-foreground italic">
-              "Currently working on systems-level contributions and infrastructure reliability."
-            </p>
-            <div className="h-px w-24 bg-gradient-to-r from-transparent via-primary/40 to-transparent mx-auto" />
-            <p className="text-sm font-mono uppercase tracking-[0.5em] text-primary/40 animate-pulse">
-              Currently building. Always learning.
-            </p>
-            <p className="text-2xl font-black tracking-tighter uppercase text-muted-foreground/40">
-              Built by Dev
+          <div className="space-y-2">
+            <h4 className="font-black text-2xl tracking-tighter uppercase text-muted-foreground/40">
+              DEV10-SYS
+            </h4>
+            <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/30">
+              © {new Date().getFullYear()} / Systems. Security. Infrastructure.
             </p>
           </div>
-
-          <div className="pt-12 border-t border-border/40 space-y-2">
-            <p className="text-lg font-bold tracking-tight text-foreground/60">
-              Systems. Security. Infrastructure. <span className="text-[#f7931a] opacity-80">Built with intent.</span>
-            </p>
-            <p className="text-xs font-mono uppercase tracking-[0.4em] text-muted-foreground/40">
-              © {new Date().getFullYear()} / Dev10-sys
-            </p>
-          </div>
-        </div>
-
-        {/* Micro Branding Watermark */}
-        <div className="absolute bottom-8 right-8 pointer-events-none opacity-[0.03] blur-[1px]">
-          <span className="text-9xl font-black tracking-tighter select-none">DEV</span>
         </div>
       </footer>
     </main>
   );
 }
-
-

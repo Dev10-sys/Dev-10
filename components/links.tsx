@@ -1,102 +1,84 @@
 "use client";
 
+import { motion } from "framer-motion";
 import site from "@/data/site.json";
-import { useState } from "react";
-import { Github, Twitter, Linkedin, Mail, ExternalLink, FileText, Terminal, Check } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import dynamic from "next/dynamic";
-
-const Contact3D = dynamic(() => import("./contact-3d").then(mod => mod.Contact3D), { ssr: false });
+import { Github, Twitter, Linkedin, Terminal, Download, ExternalLink } from "lucide-react";
 
 export function ImportantLinks() {
   const L = site.contact;
-  const [copied, setCopied] = useState(false);
-
-  const copyEmail = () => {
-    const email = L.email.replace("mailto:", "");
-    navigator.clipboard.writeText(email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   const links = [
-    { label: "GitHub", href: L.github, Icon: Github, color: "hover:border-[#f7931a]/60" },
-    { label: "LinkedIn", href: L.linkedin, Icon: Linkedin, color: "hover:border-[#f7931a]/60" },
-    { label: "Twitter", href: L.twitter, Icon: Twitter, color: "hover:border-[#f7931a]/60" },
-    { label: "Portfolio Repo", href: "https://github.com/Dev10-sys/personal-potfolio", Icon: Terminal, color: "hover:border-[#f7931a]/60" },
-    { label: "Resume", href: "/resume.pdf", Icon: FileText, color: "hover:border-[#f7931a]/60", primary: true },
-  ].filter(link => link.href);
+    { label: "GitHub Profile", href: L.github, icon: Github, sub: "Source control & contributions" },
+    { label: "LinkedIn Network", href: L.linkedin, icon: Linkedin, sub: "Professional connections" },
+    { label: "X (Twitter)", href: L.twitter, icon: Twitter, sub: "Tech posts & updates" },
+    { label: "Portfolio Repo", href: "https://github.com/Dev10-sys/personal-potfolio", icon: Terminal, sub: "Inspect website source code" },
+  ];
 
   return (
-    <div className="relative w-full py-24 overflow-hidden">
-      <Contact3D />
-      <div className="w-full max-w-6xl mx-auto space-y-12 relative z-10 px-4">
-      <div className="text-center space-y-4">
-        <h2 className="text-4xl font-bold tracking-tight">Social & Resources</h2>
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Explore production codebases, professional history, and secure contact nodes.
-        </p>
-      </div>
+    <div className="w-full max-w-7xl mx-auto px-4 py-8">
+      {/* Section header */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="flex items-center gap-4 mb-16"
+      >
+        <div className="font-mono text-xs text-primary/50 tracking-[0.3em] uppercase">07 /</div>
+        <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-foreground">Resources</h2>
+        <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(248,147,26,0.3), transparent)" }} />
+      </motion.div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {/* Email Card with Copy Logic */}
-        <motion.div
-          whileHover={{ scale: 1.03, y: -5 }}
-          className="group relative flex items-center justify-between rounded-[2rem] border border-border/60 bg-card/40 p-6 backdrop-blur-xl transition-all duration-300 hover:border-[#f7931a]/40 hover:shadow-2xl hover:shadow-[#f7931a]/5 cursor-pointer"
-          onClick={copyEmail}
-        >
-          <div className="flex items-center gap-5">
-            <div className="rounded-[1.2rem] bg-muted/50 p-4 text-foreground group-hover:bg-[#f7931a]/10 group-hover:text-[#f7931a] transition-all duration-500 group-hover:rotate-12">
-              {copied ? <Check className="h-6 w-6" /> : <Mail className="h-6 w-6" />}
-            </div>
-            <div className="space-y-1">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60">Email</span>
-              <div className="font-bold tracking-tight text-lg">Contact Dev</div>
-            </div>
-          </div>
-          <AnimatePresence>
-            {copied && (
-              <motion.span 
-                initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0 }}
-                className="text-xs font-bold text-[#f7931a] uppercase tracking-widest"
-              >
-                Copied!
-              </motion.span>
-            )}
-          </AnimatePresence>
-        </motion.div>
-
-        {links.map(({ label, href, Icon, color, primary }) => (
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {links.map((link, i) => (
           <motion.a
-            key={label}
-            href={href}
+            key={i}
+            href={link.href}
             target="_blank"
             rel="noreferrer"
-            whileHover={{ scale: 1.03, y: -5 }}
-            className={`group relative flex items-center justify-between rounded-[2rem] border border-border/60 bg-card/40 p-6 backdrop-blur-xl transition-all duration-300 ${color} hover:shadow-2xl hover:shadow-[#f7931a]/5 ${primary ? 'bg-gradient-to-br from-card/80 to-[#f7931a]/5' : ''}`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className="os-window p-6 group flex flex-col justify-between hover:border-primary/50 transition-all hover:-translate-y-1 h-[180px]"
           >
-            <div className="flex items-center gap-5">
-              <div className="rounded-[1.2rem] bg-muted/50 p-4 text-foreground group-hover:bg-[#f7931a]/10 group-hover:text-[#f7931a] transition-all duration-500 group-hover:rotate-12">
-                <Icon className="h-6 w-6" />
+            <div className="flex justify-between items-start">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
+                <link.icon className="w-5 h-5 text-primary group-hover:text-black" />
               </div>
-              <div className="space-y-1">
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60">Index</span>
-                <div className="font-bold tracking-tight text-lg">{label}</div>
-              </div>
+              <ExternalLink className="w-4 h-4 text-muted-foreground/30 group-hover:text-primary transition-colors" />
             </div>
-            <div className="relative h-6 w-6 overflow-hidden">
-               <ExternalLink className="h-5 w-5 absolute transition-all duration-300 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-40" />
-               <div className="h-5 w-5 absolute transition-all duration-300 translate-y-0 group-hover:-translate-y-6 group-hover:opacity-0 underline-decoration-primary">
-                  {label === "LinkedIn" ? <div className="w-4 h-0.5 bg-primary/20 mt-4 mx-auto group-hover:w-0 transition-all opacity-40" /> : null}
-               </div>
+            
+            <div className="mt-4 space-y-1">
+              <div className="font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">{link.label}</div>
+              <div className="font-mono text-[10px] text-muted-foreground/60">{link.sub}</div>
             </div>
           </motion.a>
         ))}
       </div>
-      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.4 }}
+        className="mt-8 flex justify-center"
+      >
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noreferrer"
+          className="group flex items-center gap-3 px-8 py-4 rounded-xl font-mono text-xs font-bold uppercase tracking-widest transition-all hover:scale-105 active:scale-95"
+          style={{
+            background: "rgba(248,147,26,0.1)",
+            border: "1px solid rgba(248,147,26,0.3)",
+            color: "#f7931a",
+          }}
+        >
+          <Download className="w-4 h-4" />
+          Download Resume.pdf
+        </a>
+      </motion.div>
     </div>
   );
 }
-

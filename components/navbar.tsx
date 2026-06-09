@@ -1,130 +1,215 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Menu, X, Terminal } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Terminal, Menu, X, Wifi, Battery, Clock } from "lucide-react";
 
-interface NavbarProps {
-  showNavLinks?: boolean;
-}
-
-export function Navbar({ showNavLinks = true }: NavbarProps) {
+export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [time, setTime] = useState("");
+  const [active, setActive] = useState("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const closeMobileMenu = () => setMobileMenuOpen(false);
+  useEffect(() => {
+    const tick = () => {
+      const now = new Date();
+      setTime(now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: false }));
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    const sections = ["about", "skills", "projects", "open-source", "extended", "contact"];
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) setActive(e.target.id); });
+      },
+      { rootMargin: "-40% 0px -40% 0px" }
+    );
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+    return () => obs.disconnect();
+  }, []);
 
   const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
-    { href: "#projects", label: "Projects" },
-    { href: "#open-source", label: "Open Source" },
-    { href: "#extended", label: "Capabilities" },
-    { href: "#contact", label: "Contact" },
+    { href: "#about", label: "About", id: "about" },
+    { href: "#skills", label: "Stack", id: "skills" },
+    { href: "#projects", label: "Projects", id: "projects" },
+    { href: "#open-source", label: "OSS", id: "open-source" },
+    { href: "#contact", label: "Contact", id: "contact" },
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 pt-4 px-4 ${
-        scrolled ? "pointer-events-none" : "pointer-events-auto"
-      }`}
-    >
-      <nav 
-        className={`mx-auto flex items-center justify-between transition-all duration-500 pointer-events-auto ${
-          scrolled 
-            ? "max-w-5xl bg-black/40 backdrop-blur-2xl border border-primary/20 rounded-[2rem] px-8 py-3 shadow-[0_0_30px_rgba(247,147,26,0.05)]" 
-            : "container bg-transparent px-6 py-4 border-b border-transparent"
-        }`}
-      >
-        <a
-          href="/"
-          className="group flex items-center gap-3 font-mono transition-all hover:scale-105"
-          aria-label="Go to home"
+    <>
+      {/* Desktop / Scrolled Navbar */}
+      <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
+        <motion.div
+          initial={{ y: -80, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="pointer-events-auto"
         >
-          <div className="flex items-center gap-2 bg-primary/10 px-3 py-1.5 rounded-xl border border-primary/20 group-hover:bg-primary/20 transition-all">
-            <Terminal className="w-4 h-4 text-primary animate-pulse" />
-            <span className="text-primary font-bold text-xs tracking-tighter">&gt;_</span>
-          </div>
-          <div className="relative">
-            <div className="absolute -inset-2 bg-primary/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-            <span className="relative text-foreground group-hover:text-primary transition-colors font-black tracking-[0.4em] uppercase text-xl">
-              Dev
-            </span>
-          </div>
-        </a>
-
-        {showNavLinks && (
-          <>
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <a key={link.href} href={link.href} className="relative group/link">
-                  <Button
-                    variant="ghost"
-                    className="h-10 text-[10px] uppercase tracking-[0.2em] font-black text-muted-foreground hover:text-foreground transition-all px-5"
-                  >
-                    {link.label}
-                  </Button>
-                  <motion.div 
-                    layoutId="nav-underline"
-                    className="absolute bottom-0 left-5 right-5 h-0.5 bg-primary scale-x-0 group-hover/link:scale-x-100 transition-transform origin-left rounded-full shadow-[0_0_10px_rgba(247,147,26,0.5)]" 
-                  />
+          {/* Top OS-style menubar when NOT scrolled */}
+          <AnimatePresence>
+            {!scrolled && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="w-full px-6 py-3 flex items-center justify-between"
+                style={{ background: "rgba(5,5,8,0.6)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(248,147,26,0.06)" }}
+              >
+                {/* Left — logo */}
+                <a href="/" className="group flex items-center gap-2">
+                  <div className="flex gap-1.5 mr-2">
+                    <div className="os-dot os-dot-red" />
+                    <div className="os-dot os-dot-yellow" />
+                    <div className="os-dot os-dot-green" />
+                  </div>
+                  <Terminal className="w-3.5 h-3.5 text-primary opacity-60" />
+                  <span className="font-mono text-xs text-primary/70 tracking-[0.2em] uppercase">Dev10-sys</span>
                 </a>
-              ))}
-            </div>
 
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden text-foreground hover:text-primary transition-colors bg-primary/5 border border-primary/10 rounded-xl h-10 w-10"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </Button>
-          </>
-        )}
-      </nav>
+                {/* Center — nav links */}
+                <nav className="hidden md:flex items-center gap-1">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      className={`relative px-4 py-1.5 rounded-md font-mono text-[11px] uppercase tracking-[0.15em] transition-all ${
+                        active === link.id
+                          ? "text-primary"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {active === link.id && (
+                        <motion.div
+                          layoutId="nav-pill"
+                          className="absolute inset-0 rounded-md"
+                          style={{ background: "rgba(248,147,26,0.1)", border: "1px solid rgba(248,147,26,0.2)" }}
+                          transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
+                        />
+                      )}
+                      <span className="relative z-10">{link.label}</span>
+                    </a>
+                  ))}
+                </nav>
 
-      {/* Mobile Navigation Menu */}
+                {/* Right — system tray */}
+                <div className="hidden md:flex items-center gap-3 text-muted-foreground/50">
+                  <Wifi className="w-3 h-3" />
+                  <Battery className="w-3.5 h-3.5" />
+                  <span className="font-mono text-[11px] text-primary/50">{time}</span>
+                </div>
+
+                {/* Mobile menu btn */}
+                <button
+                  className="md:hidden text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => setMobileOpen(!mobileOpen)}
+                >
+                  {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Floating pill when scrolled */}
+          <AnimatePresence>
+            {scrolled && (
+              <motion.div
+                initial={{ opacity: 0, y: -20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -20, scale: 0.9 }}
+                transition={{ type: "spring", bounce: 0.3, duration: 0.5 }}
+                className="mx-auto mt-4 w-fit"
+              >
+                <div
+                  className="flex items-center gap-1 px-4 py-2 rounded-full"
+                  style={{
+                    background: "rgba(13,13,20,0.9)",
+                    border: "1px solid rgba(248,147,26,0.2)",
+                    backdropFilter: "blur(20px)",
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,0,0,0.3)"
+                  }}
+                >
+                  <div className="flex gap-1 mr-3">
+                    <div className="os-dot os-dot-red" style={{ width: 8, height: 8 }} />
+                    <div className="os-dot os-dot-yellow" style={{ width: 8, height: 8 }} />
+                    <div className="os-dot os-dot-green" style={{ width: 8, height: 8 }} />
+                  </div>
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      className={`relative px-3 py-1 rounded-full font-mono text-[10px] uppercase tracking-[0.12em] transition-all ${
+                        active === link.id
+                          ? "text-primary"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {active === link.id && (
+                        <motion.div
+                          layoutId="nav-pill-scrolled"
+                          className="absolute inset-0 rounded-full"
+                          style={{ background: "rgba(248,147,26,0.12)", border: "1px solid rgba(248,147,26,0.3)" }}
+                          transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
+                        />
+                      )}
+                      <span className="relative z-10">{link.label}</span>
+                    </a>
+                  ))}
+                  <div className="ml-3 pl-3 border-l border-border/40">
+                    <span className="font-mono text-[10px] text-primary/40">{time}</span>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      </header>
+
+      {/* Mobile menu */}
       <AnimatePresence>
-        {showNavLinks && mobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
+        {mobileOpen && !scrolled && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden mt-4 mx-auto max-w-sm rounded-[2rem] border border-primary/20 bg-black/90 backdrop-blur-3xl overflow-hidden p-4 shadow-2xl pointer-events-auto"
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed top-12 left-4 right-4 z-40 rounded-2xl overflow-hidden"
+            style={{
+              background: "rgba(13,13,20,0.97)",
+              border: "1px solid rgba(248,147,26,0.15)",
+              backdropFilter: "blur(20px)",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.8)"
+            }}
           >
-            <div className="flex flex-col gap-1">
+            <div className="p-4 flex flex-col gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={closeMobileMenu}
-                  className="flex items-center justify-between px-6 py-4 rounded-2xl text-foreground hover:text-primary hover:bg-primary/10 transition-all border border-transparent hover:border-primary/20 group"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl font-mono text-sm uppercase tracking-widest text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all"
                 >
-                  <span className="text-sm font-bold uppercase tracking-widest">{link.label}</span>
-                  <Terminal className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="text-primary/40">~/</span>
+                  {link.label}
                 </a>
               ))}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
-

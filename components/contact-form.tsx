@@ -1,12 +1,9 @@
 "use client";
 
 import { useForm, ValidationError } from "@formspree/react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Send, CheckCircle2, Mail, Github } from "lucide-react";
+import { motion } from "framer-motion";
 import site from "@/data/site.json";
+import { Mail, Github, Send, Terminal, Zap, ShieldCheck } from "lucide-react";
 
 export function ContactForm() {
   const [state, handleSubmit] = useForm("xpqogjzo");
@@ -15,103 +12,173 @@ export function ContactForm() {
 
   if (state.succeeded) {
     return (
-      <Card className="border-green-500/20 bg-green-500/5 max-w-2xl mx-auto rounded-[2rem] p-8">
-        <CardContent className="pt-6 flex flex-col items-center text-center space-y-6">
-          <div className="h-20 w-20 rounded-full bg-green-500/10 flex items-center justify-center">
-            <CheckCircle2 className="h-10 w-10 text-green-500" />
-          </div>
-          <div className="space-y-2">
-            <h3 className="text-3xl font-bold">Transmission Successful</h3>
-            <p className="text-muted-foreground text-lg">Your data has been received. Expect a response on the grid soon.</p>
-          </div>
-          <Button variant="outline" className="rounded-xl px-8" onClick={() => window.location.reload()}>Send another message</Button>
-        </CardContent>
-      </Card>
+      <div className="w-full max-w-7xl mx-auto px-4 py-8">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="os-window p-12 text-center max-w-2xl mx-auto border-green-500/20"
+          style={{ boxShadow: "0 0 40px rgba(40,202,66,0.1)" }}
+        >
+          <ShieldCheck className="w-16 h-16 text-green-400 mx-auto mb-6" />
+          <h3 className="text-2xl font-black text-foreground mb-4">Transmission Successful</h3>
+          <p className="text-muted-foreground font-mono text-xs mb-8">
+            [+] Encrypted payload delivered to host.
+            <br />
+            [+] Awaiting node response.
+          </p>
+          <button
+            onClick={() => window.location.reload()}
+            className="px-6 py-2 rounded-lg font-mono text-[10px] uppercase tracking-wider transition-all"
+            style={{
+              background: "rgba(40,202,66,0.1)",
+              border: "1px solid rgba(40,202,66,0.3)",
+              color: "#28ca42",
+            }}
+          >
+            Restart Session
+          </button>
+        </motion.div>
+      </div>
     );
   }
 
   return (
-    <div className="max-w-6xl mx-auto grid lg:grid-cols-5 gap-16 items-start">
-      <div className="lg:col-span-2 space-y-10">
-        <div className="space-y-6">
-          <h2 className="text-5xl font-bold tracking-tight leading-tight">
-            Initiate <span className="text-primary italic">Contact</span>
-          </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            Scalable collaboration or deep technical audits. Reach out via the secure channel.
-          </p>
-        </div>
-        
-        <div className="space-y-4">
-          <div className="group flex items-center gap-5 p-6 rounded-3xl border border-border/60 bg-card/40 hover:border-primary/40 transition-all backdrop-blur-sm">
-            <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-              <Mail className="h-6 w-6" />
-            </div>
-            <div>
-              <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-bold mb-1">Direct Index</div>
-              <div className="text-lg font-bold truncate max-w-[200px]">{displayEmail}</div>
-            </div>
-          </div>
-          
-          <div className="group flex items-center gap-5 p-6 rounded-3xl border border-border/60 bg-card/40 hover:border-primary/40 transition-all backdrop-blur-sm">
-            <div className="h-14 w-14 rounded-2xl bg-muted flex items-center justify-center text-foreground transition-all group-hover:bg-foreground group-hover:text-background">
-              <Github className="h-6 w-6" />
-            </div>
-            <div>
-              <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-bold mb-1">Source Control</div>
-              <div className="text-lg font-bold">{site.contact.github.split("/").pop()}</div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="w-full max-w-7xl mx-auto px-4 py-8">
+      {/* Section header */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="flex items-center gap-4 mb-16"
+      >
+        <div className="font-mono text-xs text-primary/50 tracking-[0.3em] uppercase">05 /</div>
+        <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-foreground">Contact</h2>
+        <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(248,147,26,0.3), transparent)" }} />
+      </motion.div>
 
-      <Card className="lg:col-span-3 border-border/80 bg-card/40 backdrop-blur-xl shadow-2xl shadow-primary/5 rounded-[2.5rem] overflow-hidden">
-        <div className="h-2 bg-primary/20 w-full" />
-        <CardHeader className="p-10 pb-4">
-          <CardTitle className="text-2xl">Secure Messaging Terminal</CardTitle>
-          <CardDescription className="text-base">Metadata is encrypted. Expected latency: &lt; 24h.</CardDescription>
-        </CardHeader>
-        <CardContent className="p-10 pt-6">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-3">
-              <label htmlFor="email" className="text-sm font-bold uppercase tracking-widest text-muted-foreground/80 ml-1">Email Identity</label>
-              <Input
-                id="email"
-                type="email" 
-                name="email"
-                placeholder="operator@nexus.io"
-                required
-                className="h-14 px-6 rounded-2xl bg-muted/30 border-border/80 focus:border-primary/50 text-base"
-              />
-              <ValidationError prefix="Email" field="email" errors={state.errors} className="text-xs text-destructive" />
+      <div className="grid lg:grid-cols-5 gap-8">
+        {/* Left Side: Info */}
+        <div className="lg:col-span-2 space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="os-window p-8 space-y-8"
+          >
+            <div>
+              <h3 className="text-3xl font-black text-foreground tracking-tight mb-4">
+                Initiate Protocol
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Looking for scalable systems development, security audits, or deep open-source collaboration? Establish a secure connection below.
+              </p>
             </div>
-            <div className="space-y-3">
-              <label htmlFor="message" className="text-sm font-bold uppercase tracking-widest text-muted-foreground/80 ml-1">Transmission Data</label>
-              <Textarea
-                id="message"
-                name="message"
-                placeholder="Define requirements or specify inquiry parameters..."
-                required
-                rows={6}
-                className="p-6 rounded-2xl bg-muted/30 border-border/80 focus:border-primary/50 text-base"
-              />
-              <ValidationError prefix="Message" field="message" errors={state.errors} className="text-xs text-destructive" />
-            </div>
-            <Button 
-              type="submit" 
-              disabled={state.submitting}
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-black text-lg h-16 rounded-2xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98]"
-            >
-              {state.submitting ? "Processing..." : (
-                <div className="flex items-center gap-3">
-                  Execute Send
-                  <Send className="h-5 w-5" />
+
+            <div className="space-y-4 pt-4 border-t border-border/40">
+              <a
+                href={email}
+                className="group flex items-center gap-4 p-4 rounded-xl transition-all hover:bg-white/5 border border-transparent hover:border-white/10"
+              >
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
+                  <Mail className="w-5 h-5 text-primary group-hover:text-black" />
                 </div>
-              )}
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
+                <div>
+                  <div className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/50 mb-0.5">Secure Index</div>
+                  <div className="font-bold text-sm text-foreground/90">{displayEmail}</div>
+                </div>
+              </a>
+
+              <a
+                href={site.contact.github}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center gap-4 p-4 rounded-xl transition-all hover:bg-white/5 border border-transparent hover:border-white/10"
+              >
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-white transition-colors">
+                  <Github className="w-5 h-5 text-foreground/70 group-hover:text-black" />
+                </div>
+                <div>
+                  <div className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/50 mb-0.5">Source Control</div>
+                  <div className="font-bold text-sm text-foreground/90">{site.contact.github.split("/").pop()}</div>
+                </div>
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Right Side: Form Terminal */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="lg:col-span-3"
+        >
+          <div className="os-window h-full flex flex-col">
+            <div className="os-window-header">
+              <div className="os-dot os-dot-red" />
+              <div className="os-dot os-dot-yellow" />
+              <div className="os-dot os-dot-green" />
+              <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">secure-messaging.sh</span>
+            </div>
+            
+            <div className="p-8 flex-1">
+              <div className="font-mono text-xs text-primary/60 mb-8 flex items-center gap-2">
+                <Terminal className="w-4 h-4" />
+                <span>root@nexus:~$ ./initiate_contact --encrypt</span>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <label htmlFor="email" className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/60 block">
+                    &gt; Target.Email
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="operator@system.io"
+                    required
+                    className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 font-mono text-sm text-foreground focus:outline-none focus:border-primary/50 transition-colors"
+                  />
+                  <ValidationError prefix="Email" field="email" errors={state.errors} className="text-[10px] text-red-400 font-mono" />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="message" className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/60 block">
+                    &gt; Payload.Data
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    placeholder="Enter command parameters or message..."
+                    required
+                    className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 font-mono text-sm text-foreground focus:outline-none focus:border-primary/50 transition-colors resize-none"
+                  />
+                  <ValidationError prefix="Message" field="message" errors={state.errors} className="text-[10px] text-red-400 font-mono" />
+                </div>
+
+                <div className="pt-4 flex justify-end">
+                  <button
+                    type="submit"
+                    disabled={state.submitting}
+                    className="group relative flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-xs uppercase tracking-wider text-black overflow-hidden transition-all hover:scale-105 active:scale-95 disabled:opacity-50 disabled:pointer-events-none"
+                    style={{
+                      background: "linear-gradient(135deg, #f7931a, #ffbd2e)",
+                      boxShadow: "0 0 20px rgba(247,147,26,0.3)",
+                    }}
+                  >
+                    <span className="relative z-10">{state.submitting ? "Executing..." : "Execute Send"}</span>
+                    <Send className="w-3.5 h-3.5 relative z-10" />
+                    <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 }

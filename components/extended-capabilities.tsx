@@ -1,140 +1,92 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
-import { 
-  FileCode2, 
-  Presentation, 
-  BarChart4, 
-  Briefcase, 
-  Zap,
-  ChevronRight,
-  Code2
-} from "lucide-react";
-import { useRef } from "react";
-
-const capabilities = [
-  {
-    title: "Technical Content & Research",
-    description: "Writing deep-dive technical content, documentation, and structured research for systems, security, and blockchain.",
-    icon: FileCode2,
-  },
-  {
-    title: "Video Editing & Content Creation",
-    description: "Creating high-quality technical visuals, explainers, and product-focused content.",
-    icon: Presentation,
-  },
-  {
-    title: "Growth & Marketing",
-    description: "Understanding product positioning, user acquisition, and early-stage growth strategies.",
-    icon: BarChart4,
-  },
-  {
-    title: "Freelance & Independent Work",
-    description: "Available for freelance engineering, technical consulting, and content-driven projects.",
-    icon: Briefcase,
-  },
-  {
-    title: "Startup Exposure",
-    description: "Actively interested in working with early-stage startups, contributing across engineering, product, and growth.",
-    icon: Zap,
-  }
-];
+import { motion } from "framer-motion";
+import { Terminal, Shield, Zap, FileCode, Network, Fingerprint } from "lucide-react";
 
 export function ExtendedCapabilities() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const capabilities = [
+    {
+      title: "Security Hardening",
+      desc: "Container execution analysis, API validation, and non-root enforcements for distributed microservices.",
+      icon: Shield,
+      color: "#f43f5e",
+    },
+    {
+      title: "Protocol Integration",
+      desc: "Deep integration with Ethereum (JSON-RPC, Web3j) and Bitcoin (Lightning, NWC) protocols.",
+      icon: Network,
+      color: "#f7931a",
+    },
+    {
+      title: "Systems Engineering",
+      desc: "Linux desktop environments, Wayland/X11 compositors, D-Bus communication, and GTK tooling.",
+      icon: Terminal,
+      color: "#06b6d4",
+    },
+    {
+      title: "Technical Auditing",
+      desc: "Deep-dive analysis of execution pipelines and open-source infrastructure for stability improvements.",
+      icon: FileCode,
+      color: "#10b981",
+    },
+    {
+      title: "Identity & Cryptography",
+      desc: "Client-side generation engines, Verifiable Credentials (SSI), and DIDComm implementations.",
+      icon: Fingerprint,
+      color: "#7c3aed",
+    },
+    {
+      title: "Performance Optimization",
+      desc: "Execution engine schedulers, JVM classloader memory leak resolution, and test stability.",
+      icon: Zap,
+      color: "#ffbd2e",
+    },
+  ];
 
   return (
-    <section ref={containerRef} className="py-24 relative overflow-hidden">
-      {/* Dynamic Background Animation */}
-      <motion.div 
-        style={{ y, opacity }}
-        className="absolute inset-0 z-0 pointer-events-none"
+    <div className="w-full max-w-7xl mx-auto px-4 py-8">
+      {/* Section header */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="flex items-center gap-4 mb-16"
       >
-        <div className="absolute inset-0 opacity-[0.05]" 
-             style={{ 
-               backgroundImage: 'radial-gradient(#f7931a 1px, transparent 1px)', 
-               backgroundSize: '60px 60px' 
-             }} 
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+        <div className="font-mono text-xs text-primary/50 tracking-[0.3em] uppercase">06 /</div>
+        <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-foreground">Capabilities</h2>
+        <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(248,147,26,0.3), transparent)" }} />
       </motion.div>
 
-      {/* Animated Scanline */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="w-full h-[50vh] bg-gradient-to-b from-transparent via-primary/5 to-transparent absolute top-[-50vh] animate-[scanline_10s_linear_infinite]" />
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {capabilities.map((cap, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1, duration: 0.5 }}
+            className="os-window group relative p-6 h-[280px] flex flex-col hover:border-primary/40 hover:shadow-[0_0_30px_rgba(247,147,26,0.08)] transition-all cursor-pointer"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none" />
+            
+            <div className="w-12 h-12 rounded-xl mb-6 flex items-center justify-center transition-all group-hover:scale-110" style={{ background: `${cap.color}15`, border: `1px solid ${cap.color}30` }}>
+              <cap.icon className="w-6 h-6" style={{ color: cap.color }} />
+            </div>
+
+            <h3 className="text-xl font-bold text-foreground mb-3 tracking-tight">{cap.title}</h3>
+            
+            <p className="text-muted-foreground/80 text-sm leading-relaxed flex-1">
+              {cap.desc}
+            </p>
+
+            <div className="mt-4 font-mono text-[10px] text-muted-foreground/30 uppercase tracking-[0.2em] flex items-center justify-between">
+              Module Active
+              <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: cap.color }} />
+            </div>
+          </motion.div>
+        ))}
       </div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mb-24 space-y-6">
-          <Badge variant="outline" className="text-primary border-primary/30 bg-primary/5 px-4 py-1 font-mono tracking-[0.2em] text-[10px] uppercase">
-            Expansion Matrix
-          </Badge>
-          <h2 className="text-5xl md:text-7xl font-black tracking-tight text-foreground uppercase leading-[0.9]">
-            Extended <span className="text-primary italic">Capabilities</span>
-          </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl font-medium border-l-2 border-primary/20 pl-6">
-            Beyond core systems engineering, I actively work across technical communication, growth, and execution domains.
-          </p>
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-8">
-          {capabilities.map((cap, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true }}
-              className="group relative w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] min-h-[380px] flex flex-col p-10 rounded-[2.5rem] bg-white/[0.01] backdrop-blur-sm border border-white/5 hover:border-primary/40 transition-all duration-700 overflow-hidden"
-            >
-              {/* Technical Hover Reveal */}
-              <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              
-              <div className="flex items-center justify-between mb-10">
-                <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 group-hover:rotate-[10deg]">
-                  <cap.icon className="h-7 w-7 text-foreground group-hover:text-primary transition-colors duration-500" />
-                </div>
-                <div className="h-px w-12 bg-white/10 group-hover:w-20 group-hover:bg-primary/40 transition-all duration-500" />
-              </div>
-              
-              <h3 className="text-2xl font-bold mb-5 tracking-tight group-hover:text-primary transition-colors flex items-center gap-3">
-                <span className="text-primary/20 group-hover:text-primary/100 transition-colors font-mono text-sm">•</span>
-                {cap.title}
-              </h3>
-              
-              <p className="text-muted-foreground leading-relaxed text-sm font-medium mb-10 flex-grow">
-                {cap.description}
-              </p>
-
-              <div className="flex items-center gap-2 text-[11px] font-mono font-bold tracking-[0.2em] text-primary/60 group-hover:text-primary transition-all">
-                SYSTEM_ACCESS <ChevronRight className="h-3 w-3 animate-pulse" />
-              </div>
-
-              {/* Decorative Tech Corner */}
-              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-100 transition-all">
-                 <div className="w-8 h-8 border-t border-r border-primary/40" />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      <style jsx global>{`
-        @keyframes scanline {
-          0% { top: -50vh; opacity: 0; }
-          20% { opacity: 1; }
-          80% { opacity: 1; }
-          100% { top: 100vh; opacity: 0; }
-        }
-      `}</style>
-    </section>
+    </div>
   );
 }
