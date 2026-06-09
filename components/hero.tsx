@@ -202,7 +202,7 @@ export function Hero() {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: booted ? 1 : 0, x: booted ? 0 : 40 }}
               transition={{ duration: 0.6, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="grid grid-cols-2 gap-3"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-3"
             >
               {[
                 { label: "Linux Systems", icon: Terminal, color: "#10b981", sub: "Wayland / CLI / D-Bus" },
@@ -224,7 +224,7 @@ export function Hero() {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: booted ? 1 : 0, x: booted ? 0 : 40 }}
               transition={{ duration: 0.6, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="grid grid-cols-3 gap-3"
+              className="grid grid-cols-2 sm:grid-cols-3 gap-3"
             >
               {[
                 { n: "100+", label: "PRs Merged", color: "#10b981", icon: "⚡" },

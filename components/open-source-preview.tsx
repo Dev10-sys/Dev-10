@@ -99,7 +99,7 @@ export function OpenSourcePreview() {
                 </div>
 
                 {/* Contributions list */}
-                <div className="lg:w-2/3 border-l border-white/5 pl-0 lg:pl-8 space-y-6">
+                <div className="lg:w-2/3 border-t lg:border-t-0 lg:border-l border-white/5 pt-6 lg:pt-0 lg:pl-8 space-y-6">
                   <div className="space-y-3">
                     <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 mb-2">
                       <Network className="w-3 h-3 text-primary/60" />
