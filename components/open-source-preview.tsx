@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import site from "@/data/site.json";
-import { GitPullRequest, Github, ExternalLink, Network, FileDiff } from "lucide-react";
+import { GitPullRequest, Github, ExternalLink, Network, CheckCircle2 } from "lucide-react";
 
 export function OpenSourcePreview() {
   const { openSource } = site;
@@ -44,117 +44,107 @@ export function OpenSourcePreview() {
         ))}
       </motion.div>
 
-      <div className="grid lg:grid-cols-12 gap-6">
-        {/* Left Side: Timeline */}
-        <div className="lg:col-span-5 space-y-6">
-          <div className="os-window h-full">
-            <div className="os-window-header">
-              <div className="os-dot os-dot-red" />
-              <div className="os-dot os-dot-yellow" />
-              <div className="os-dot os-dot-green" />
-              <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">git-log --graph --oneline</span>
-            </div>
-            <div className="p-6 relative timeline-line pl-8 ml-4 space-y-12 my-4">
-              {orgs.map((org, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="relative group cursor-pointer"
-                >
-                  <div className="absolute -left-[42px] top-1 w-4 h-4 rounded-full bg-background border-2 border-primary/40 group-hover:border-primary group-hover:bg-primary/20 transition-all flex items-center justify-center shadow-[0_0_10px_rgba(248,147,26,0.2)]">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+      <div className="space-y-6">
+        {orgs.map((org, i) => {
+          const isGsoc = org.name === "SugarLabs";
+          const isLfx = org.name === "Web3j (LFDT)";
+          
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className={`os-window p-8 border ${isGsoc ? 'border-green-500/20 shadow-[0_0_30px_rgba(34,197,94,0.05)]' : isLfx ? 'border-[#f7931a]/20 shadow-[0_0_30px_rgba(247,147,26,0.05)]' : 'border-white/5'}`}
+            >
+              <div className="flex flex-col lg:flex-row gap-8">
+                
+                {/* Header & Meta */}
+                <div className="lg:w-1/3 space-y-4">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-background border border-primary/20 flex items-center justify-center shadow-lg shrink-0">
+                      {isGsoc ? <img src="/images/profile.png" className="w-8 h-8 object-cover rounded-md opacity-80" alt="SugarLabs" /> : <Github className="w-6 h-6 text-foreground/80" />}
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-black text-foreground">{org.name}</h3>
+                      <div className="font-mono text-[10px] text-muted-foreground uppercase mt-1 tracking-widest">{org.tech?.join(" · ")}</div>
+                    </div>
                   </div>
                   
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-3">
-                      <div className="font-black text-xl text-foreground group-hover:text-primary transition-colors">
-                        {org.name}
-                      </div>
-                      {org.name === "SugarLabs" && (
-                        <span className="px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-wider bg-green-400/10 text-green-400 border border-green-400/20">
-                          GSoC '26
+                  {isGsoc && (
+                    <div className="inline-block px-3 py-1 rounded bg-green-500/10 border border-green-500/20 text-green-400 font-mono text-[10px] uppercase tracking-widest font-bold">
+                      🏆 GSoC 2026 Contributor
+                    </div>
+                  )}
+                  {isLfx && (
+                    <div className="inline-block px-3 py-1 rounded bg-[#f7931a]/10 border border-[#f7931a]/20 text-[#f7931a] font-mono text-[10px] uppercase tracking-widest font-bold">
+                      🏆 LFX Mentorship
+                    </div>
+                  )}
+
+                  <p className="text-muted-foreground/80 text-sm leading-relaxed">
+                    {org.tagline}
+                  </p>
+                  
+                  <a
+                    href={org.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-mono text-[10px] uppercase tracking-widest text-primary/80 hover:text-primary bg-primary/5 hover:bg-primary/10 transition-colors border border-primary/10"
+                  >
+                    <Github className="w-3.5 h-3.5" />
+                    View Author PRs <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+
+                {/* Contributions list */}
+                <div className="lg:w-2/3 border-l border-white/5 pl-0 lg:pl-8 space-y-6">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 mb-2">
+                      <Network className="w-3 h-3 text-primary/60" />
+                      Key Commits & Implementations
+                    </div>
+                    {org.contributions.map((cont, j) => (
+                      <div key={j} className="flex items-start gap-3 bg-white/[0.02] p-3 rounded-lg border border-white/5 hover:border-primary/20 transition-colors">
+                        <CheckCircle2 className="w-4 h-4 text-green-400/60 shrink-0 mt-0.5" />
+                        <span className="text-sm text-foreground/80 leading-relaxed font-medium">
+                          {cont}
                         </span>
-                      )}
-                    </div>
-                    <div className="font-mono text-xs text-muted-foreground/80">{org.tagline}</div>
-                    
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {org.contributions.slice(0, 2).map((cont, j) => (
-                        <div key={j} className="flex items-center gap-1.5 font-mono text-[10px] text-foreground/50">
-                          <FileDiff className="w-3 h-3 text-primary/40" />
-                          {cont.length > 40 ? cont.slice(0, 40) + "..." : cont}
-                        </div>
-                      ))}
-                    </div>
-
-                    <a href={org.link} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 mt-2 font-mono text-[10px] text-primary hover:text-primary/70 transition-colors">
-                      View all PRs <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Right Side: Graph / Deep Dive */}
-        <div className="lg:col-span-7 space-y-6">
-          <div className="os-window overflow-hidden h-full">
-            <div className="os-window-header">
-              <div className="os-dot os-dot-red" />
-              <div className="os-dot os-dot-yellow" />
-              <div className="os-dot os-dot-green" />
-              <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">network-topology.svg</span>
-            </div>
-            
-            <div className="p-8 flex flex-col items-center justify-center min-h-[400px] relative">
-              <div className="absolute inset-0 noise-bg" />
-              
-              <Network className="w-16 h-16 text-primary/20 mb-6 animate-pulse" />
-              <h3 className="text-2xl font-black text-foreground mb-4">Ecosystem Impact</h3>
-              <p className="text-center text-muted-foreground max-w-md text-sm leading-relaxed mb-8">
-                {openSource.summary} Deep contributions to system reliability, package security, and blockchain infrastructure.
-              </p>
-
-              {/* Fake visual nodes */}
-              <div className="w-full relative h-[150px]">
-                {orgs.slice(0, 5).map((org, i) => {
-                  const x = 50 + 35 * Math.cos((i * 2 * Math.PI) / 5);
-                  const y = 50 + 35 * Math.sin((i * 2 * Math.PI) / 5);
-                  return (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.3 + i * 0.1 }}
-                      className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2"
-                      style={{ left: `${x}%`, top: `${y}%` }}
-                    >
-                      <div className="w-10 h-10 rounded-full bg-background border border-primary/30 flex items-center justify-center text-xs shadow-[0_0_15px_rgba(248,147,26,0.15)] group-hover:border-primary transition-colors cursor-pointer">
-                        {org.name.charAt(0)}
                       </div>
-                      <span className="font-mono text-[9px] text-muted-foreground/60 uppercase">{org.name}</span>
-                    </motion.div>
-                  );
-                })}
-                {/* Center node */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center shadow-[0_0_30px_rgba(248,147,26,0.3)]"
-                >
-                  <Github className="w-6 h-6 text-primary" />
-                </motion.div>
+                    ))}
+                  </div>
+
+                  {org.links && org.links.length > 0 && (
+                    <div>
+                      <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 mb-3">
+                        <GitPullRequest className="w-3 h-3 text-primary/60" />
+                        Direct PR Links
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {org.links.map((prLink, j) => {
+                          const prNum = prLink.split("/").pop();
+                          return (
+                            <a
+                              key={j}
+                              href={prLink}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="px-3 py-1.5 rounded-lg bg-primary/5 border border-primary/20 text-primary font-mono text-[11px] hover:bg-primary/20 transition-colors flex items-center gap-1.5"
+                            >
+                              #{prNum} <ExternalLink className="w-3 h-3 opacity-50" />
+                            </a>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
               </div>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );

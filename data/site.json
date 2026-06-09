@@ -22,6 +22,7 @@
     "longBio": "I work across web development, blockchain systems, machine learning, and infrastructure engineering with a strong focus on reliability and production-grade systems. Official Google Summer of Code 2026 Contributor at Sugar Labs.",
     "skills": {
       "Systems & Infrastructure": [
+        "Linux",
         "Linux Systems",
         "Wayland / X11",
         "D-Bus",
@@ -43,7 +44,7 @@
         "Wallet Integration (Lightning / NWC)"
       ],
       "Languages": ["Java (Protocol-level)", "TypeScript/JS", "Python", "C/C++", "SQL", "Bash"],
-      "Frameworks": ["Node.js", "Express.js", "React/Next.js", "REST APIs", "Spring Boot"],
+      "Frameworks": ["Web Development", "Full Stack", "Node.js", "Express.js", "React/Next.js", "REST APIs", "Spring Boot"],
       "Databases": ["PostgreSQL", "Redis", "Supabase"],
       "Tools": ["Git", "Docker", "Kubernetes", "CI/CD & GitHub Actions", "Postman / API Testing"]
     },

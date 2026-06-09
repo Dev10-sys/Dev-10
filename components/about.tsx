@@ -186,8 +186,8 @@ export function About() {
                 {
                   year: "2025",
                   title: "LFX Mentorship",
-                  org: "OpenSSF / RSTUF",
-                  desc: "Security hardening across distributed services. Non-root container enforcement.",
+                  org: "Web3j (LFDT)",
+                  desc: "Protocol-level reliability improvements and memory leak resolution in JVM clients.",
                   color: "#f7931a",
                   badge: "LFX",
                 },
