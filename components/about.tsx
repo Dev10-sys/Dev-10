@@ -58,7 +58,7 @@ export function About() {
               <div className="os-dot os-dot-red" />
               <div className="os-dot os-dot-yellow" />
               <div className="os-dot os-dot-green" />
-              <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">profile.png — Preview</span>
+              <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">Profile Photo</span>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
@@ -110,7 +110,7 @@ export function About() {
               <div className="os-dot os-dot-red" />
               <div className="os-dot os-dot-yellow" />
               <div className="os-dot os-dot-green" />
-              <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">system-info — neofetch</span>
+              <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">System Information</span>
             </div>
             <div className="p-5 font-mono text-xs space-y-2">
               {systemInfo.map(({ key, value, highlight }, i) => (
@@ -142,11 +142,10 @@ export function About() {
               <div className="os-dot os-dot-red" />
               <div className="os-dot os-dot-yellow" />
               <div className="os-dot os-dot-green" />
-              <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">bio.md — Editor</span>
+              <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">About Me</span>
             </div>
             <div className="p-6 space-y-4">
               <div>
-                <div className="font-mono text-[10px] text-primary/40 uppercase tracking-[0.2em] mb-3">// about me</div>
                 <p className="text-foreground/80 leading-relaxed text-base font-medium">
                   {profile.shortBio}
                 </p>
@@ -171,7 +170,7 @@ export function About() {
               <div className="os-dot os-dot-red" />
               <div className="os-dot os-dot-yellow" />
               <div className="os-dot os-dot-green" />
-              <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">achievements.log</span>
+              <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">Milestones</span>
             </div>
             <div className="p-5 space-y-4">
               {[

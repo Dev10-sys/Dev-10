@@ -51,8 +51,8 @@ export function ProjectsPreview() {
                   <div className="os-dot os-dot-yellow" />
                   <div className="os-dot os-dot-green" />
                 </div>
-                <span className="font-mono text-[10px] text-muted-foreground/40">
-                  {project.title.toLowerCase().replace(/\s+/g, "-")}.exe
+                <span className="font-mono text-[10px] text-muted-foreground/60 uppercase tracking-widest">
+                  {project.title}
                 </span>
               </div>
               <div className="flex gap-3">
@@ -113,8 +113,8 @@ export function ProjectsPreview() {
 
               {/* Right Side: Highlights Terminal */}
               <div className="p-6 relative bg-[#020202]/30">
-                <div className="absolute top-4 right-4 font-mono text-[9px] text-muted-foreground/30 uppercase tracking-widest">
-                  Execution Log
+                <div className="absolute top-4 right-4 font-mono text-[9px] text-muted-foreground/50 uppercase tracking-widest">
+                  Key Highlights
                 </div>
                 <div className="space-y-4 mt-6">
                   {project.highlights.map((highlight, j) => (
@@ -139,8 +139,6 @@ export function ProjectsPreview() {
                     transition={{ delay: 0.2 + project.highlights.length * 0.1 }}
                     className="flex items-center gap-2 pt-2"
                   >
-                    <span className="text-primary cursor-blink">█</span>
-                    <span className="font-mono text-[10px] text-muted-foreground/30">Process completed with exit code 0</span>
                   </motion.div>
                 </div>
               </div>

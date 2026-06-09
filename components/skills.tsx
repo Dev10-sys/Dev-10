@@ -93,8 +93,8 @@ export function Skills() {
                 <div className="os-dot os-dot-red" />
                 <div className="os-dot os-dot-yellow" />
                 <div className="os-dot os-dot-green" />
-                <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">
-                  {cat.toLowerCase().replace(/\s+/g, "-")}.ts
+                <span className="ml-2 font-mono text-[10px] text-muted-foreground/60 uppercase tracking-widest">
+                  {cat}
                 </span>
               </div>
 
