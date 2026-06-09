@@ -74,7 +74,6 @@ export const metadata: Metadata = {
 
 import { CursorGlow } from "@/components/cursor-glow";
 import { GlobalBackground } from "@/components/global-background";
-import { Navbar } from "@/components/navbar";
 
 export default function RootLayout({
   children,
@@ -82,13 +81,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="en" className="dark">
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} overflow-hidden`}>
         <GlobalBackground />
-        <CursorGlow />
-        <Navbar />
         <Suspense fallback={null}>
-          <main className="pt-24 min-h-screen">
+          <main className="h-screen w-screen overflow-hidden">
             {children}
           </main>
         </Suspense>

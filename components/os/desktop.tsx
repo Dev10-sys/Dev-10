@@ -1,0 +1,110 @@
+"use client";
+
+import { useState } from "react";
+import { TopBar } from "./top-bar";
+import { Window } from "./window";
+import { Terminal, FolderGit2, UserCircle, Settings } from "lucide-react";
+import { About } from "../about";
+import { OpenSourcePreview } from "../open-source-preview";
+
+type App = {
+  id: string;
+  title: string;
+  icon: any;
+  content: React.ReactNode;
+  defaultSize?: { width: string | number; height: string | number };
+};
+
+export function Desktop() {
+  const apps: App[] = [
+    {
+      id: "about",
+      title: "Settings - About Me",
+      icon: Settings,
+      content: <About />,
+      defaultSize: { width: "80%", height: "80%" }
+    },
+    {
+      id: "projects",
+      title: "Projects",
+      icon: FolderGit2,
+      content: <div className="p-8 text-white"><OpenSourcePreview /></div>,
+      defaultSize: { width: "85%", height: "85%" }
+    },
+    {
+      id: "terminal",
+      title: "Terminal",
+      icon: Terminal,
+      content: (
+        <div className="p-4 font-mono text-green-400 bg-black/90 h-full">
+          <div>dev10-sys@ubuntu:~$ whoami</div>
+          <div>dev10-sys</div>
+          <div>dev10-sys@ubuntu:~$ cat skills.txt</div>
+          <div className="text-white">Bitcoin · GTK4 · Linux · React · Next.js · Node.js</div>
+          <div>dev10-sys@ubuntu:~$ <span className="animate-pulse">_</span></div>
+        </div>
+      ),
+      defaultSize: { width: 600, height: 400 }
+    }
+  ];
+
+  const [openWindows, setOpenWindows] = useState<string[]>([]);
+  const [activeWindow, setActiveWindow] = useState<string | null>(null);
+
+  const openApp = (id: string) => {
+    if (!openWindows.includes(id)) {
+      setOpenWindows([...openWindows, id]);
+    }
+    setActiveWindow(id);
+  };
+
+  const closeApp = (id: string) => {
+    setOpenWindows(openWindows.filter((w) => w !== id));
+    if (activeWindow === id) {
+      setActiveWindow(openWindows.length > 1 ? openWindows[openWindows.length - 2] : null);
+    }
+  };
+
+  return (
+    <div className="relative w-full h-screen desktop-bg overflow-hidden text-foreground">
+      <TopBar />
+      
+      {/* Desktop Icons */}
+      <div className="pt-12 px-4 flex flex-col gap-6 w-24">
+        {apps.map((app) => (
+          <button
+            key={app.id}
+            onClick={() => openApp(app.id)}
+            className="flex flex-col items-center gap-1 group hover:bg-white/10 p-2 rounded-xl transition-colors"
+          >
+            <div className="w-12 h-12 bg-black/40 border border-white/10 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+              <app.icon className="w-6 h-6 text-white" />
+            </div>
+            <span className="text-xs font-medium text-white drop-shadow-md text-center">{app.title.split(' - ')[0]}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* Windows */}
+      {openWindows.map((id) => {
+        const app = apps.find((a) => a.id === id);
+        if (!app) return null;
+
+        return (
+          <Window
+            key={id}
+            id={id}
+            title={app.title}
+            isOpen={true}
+            onClose={() => closeApp(id)}
+            isActive={activeWindow === id}
+            onFocus={() => setActiveWindow(id)}
+            defaultSize={app.defaultSize}
+          >
+            {app.content}
+          </Window>
+        );
+      })}
+    </div>
+  );
+}

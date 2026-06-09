@@ -1,9 +1,5 @@
-import { Hero } from "@/components/hero";
+import { Desktop } from "@/components/os/desktop";
 
-export default function Page() {
-  return (
-    <div className="page-transition">
-      <Hero />
-    </div>
-  );
+export default function Home() {
+  return <Desktop />;
 }
