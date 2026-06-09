@@ -3,8 +3,8 @@
     "name": "Dev",
     "role": "Systems & Secure Infrastructure",
     "tagline": "Dev — Systems • Security • Infrastructure",
-    "mainHeading": "I build systems that stay up.",
-    "subline": "Focused on reliability, security, and real-world performance.",
+    "mainHeading": "Hi, I'm Dev.",
+    "subline": "Software Engineer & Open Source Contributor.",
     "primaryCta": {
       "label": "Explore Engineering Work",
       "url": "/projects"
@@ -18,8 +18,8 @@
   "profile": {
     "location": "Bangalore, India",
     "education": "System Design & Security Hardening",
-    "shortBio": "I am Dev, a B.Tech CS undergraduate with specialization in AI/ML.",
-    "longBio": "I work across web development, blockchain systems, machine learning, and infrastructure engineering with a strong focus on reliability and production-grade systems. Official Google Summer of Code 2026 Contributor at Sugar Labs.",
+    "shortBio": "I'm a B.Tech CS student specializing in AI/ML.",
+    "longBio": "I'm a software engineer based in Bangalore. I focus on full-stack web development, Linux infrastructure, and contributing to open source projects. I currently contribute to Sugar Labs as part of Google Summer of Code.",
     "skills": {
       "Systems & Infrastructure": [
         "Linux",
@@ -101,7 +101,7 @@
     }
   ],
   "openSource": {
-    "summary": "I contribute to open source systems that are actually used in production.",
+    "summary": "I actively contribute to various open source organizations.",
     "stats": {
       "totalPRs": "100+",
       "mergedPRs": "100+",

@@ -7,10 +7,6 @@ import Link from "next/link";
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-12">
-      {/* Background atmosphere */}
-      <div className="absolute rounded-full pointer-events-none opacity-[0.03] filter blur-[80px]" style={{ left: "-10%", top: "10%", width: "600px", height: "600px", background: "var(--primary)" }} />
-      <div className="absolute rounded-full pointer-events-none opacity-[0.03] filter blur-[80px]" style={{ left: "60%", top: "60%", width: "500px", height: "500px", background: "var(--primary)" }} />
-
       <div className="container mx-auto px-4 relative z-10 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left — Main content */}
@@ -32,9 +28,9 @@ export function Hero() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-5xl md:text-7xl font-black tracking-tighter text-foreground leading-[1.1]"
               >
-                Hi, I'm <span className="gradient-text">Dev</span>.
+                Hi, I'm Dev.
                 <br />
-                I build robust software.
+                Software Engineer.
               </motion.h1>
 
               <motion.p
@@ -43,8 +39,8 @@ export function Hero() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="mt-6 text-muted-foreground text-lg leading-relaxed max-w-xl"
               >
-                I'm a B.Tech CS student specializing in AI/ML, based in Bangalore. 
-                I focus on full-stack web development, Linux infrastructure, and contributing to open source projects that are used in production.
+                B.Tech CS student based in Bangalore. 
+                I focus on full-stack web development, Linux infrastructure, and building open source tools.
               </motion.p>
             </div>
 
@@ -57,11 +53,7 @@ export function Hero() {
             >
               <Link
                 href="/projects"
-                className="group relative flex items-center gap-3 px-8 py-3.5 rounded-xl font-bold text-sm text-black transition-all hover:scale-105 active:scale-95"
-                style={{
-                  background: "linear-gradient(135deg, #f7931a, #ffbd2e)",
-                  boxShadow: "0 4px 20px rgba(247,147,26,0.3)",
-                }}
+                className="group relative flex items-center gap-3 px-8 py-3.5 rounded-xl font-bold text-sm bg-foreground text-background transition-all hover:scale-105 active:scale-95 hover:bg-foreground/90"
               >
                 <Zap className="w-4 h-4" />
                 View My Work
@@ -89,13 +81,13 @@ export function Hero() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                { label: "Linux Systems", icon: Terminal, color: "#10b981", sub: "Wayland / CLI / D-Bus" },
-                { label: "Web Development", icon: Code2, color: "#7c3aed", sub: "React / Node / APIs" },
-                { label: "Full Stack", icon: Server, color: "#06b6d4", sub: "Postgres / Next.js" },
-                { label: "Blockchain", icon: Zap, color: "#f7931a", sub: "Lightning / Web3j" },
+                { label: "Linux Systems", icon: Terminal, sub: "Wayland / CLI / D-Bus" },
+                { label: "Web Development", icon: Code2, sub: "React / Node / APIs" },
+                { label: "Full Stack", icon: Server, sub: "Postgres / Next.js" },
+                { label: "Blockchain", icon: Zap, sub: "Lightning / Web3j" },
               ].map((skill, i) => (
                 <div key={i} className="modern-card p-6 relative overflow-hidden group">
-                  <skill.icon className="w-6 h-6 mb-4" style={{ color: skill.color }} />
+                  <skill.icon className="w-6 h-6 mb-4 text-foreground/80" />
                   <div className="font-bold text-foreground mb-1">{skill.label}</div>
                   <div className="text-xs text-muted-foreground">{skill.sub}</div>
                 </div>

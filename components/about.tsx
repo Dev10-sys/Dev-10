@@ -124,27 +124,23 @@ export function About() {
                   title: "Google Summer of Code",
                   org: "Sugar Labs",
                   desc: "Selected contributor. Linux Desktop (Python/GTK/D-Bus).",
-                  color: "#EA4335",
                 },
                 {
                   year: "2025",
                   title: "LFX Mentorship",
                   org: "Web3j (LFDT)",
                   desc: "Protocol-level reliability improvements and memory leak resolution in JVM clients.",
-                  color: "#f7931a",
                 },
                 {
                   year: "2024–25",
                   title: "Open Source Contributions",
                   org: "11+ Organizations",
                   desc: "100+ PRs across Web3j, Hyperledger, SONiC, CHAOSS, Chicago PCDC and more.",
-                  color: "#7c3aed",
                 },
               ].map((item, i) => (
                 <div key={i} className="relative pl-8">
                   <div 
-                    className="absolute left-0 top-1.5 w-3 h-3 rounded-full border-2 border-background"
-                    style={{ backgroundColor: item.color, boxShadow: `0 0 10px ${item.color}40` }}
+                    className="absolute left-0 top-1.5 w-3 h-3 rounded-full border-2 border-background bg-foreground"
                   />
                   {i !== 2 && (
                     <div className="absolute left-[5px] top-4 bottom-[-2rem] w-0.5 bg-border" />
@@ -152,9 +148,9 @@ export function About() {
                   <div className="space-y-1">
                     <div className="flex items-center gap-3">
                       <span className="text-sm font-bold text-muted-foreground">{item.year}</span>
-                      <h4 className="text-lg font-bold" style={{ color: item.color }}>{item.title}</h4>
+                      <h4 className="text-lg font-bold text-foreground">{item.title}</h4>
                     </div>
-                    <div className="font-bold text-foreground">{item.org}</div>
+                    <div className="font-bold text-foreground/80">{item.org}</div>
                     <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
