@@ -2,7 +2,7 @@
   "hero": {
     "name": "Dev",
     "role": "Systems & Secure Infrastructure",
-    "tagline": "Dev \u00e2\u20ac\u201d Systems \u00e2\u20ac\u00a2 Security \u00e2\u20ac\u00a2 Infrastructure",
+    "tagline": "Dev — Systems • Security • Infrastructure",
     "mainHeading": "Hi, I'm Dev.",
     "subline": "Software Engineer & Open Source Contributor.",
     "primaryCta": {
@@ -169,7 +169,7 @@
       {
         "name": "SugarLabs",
         "logo": "https://github.com/sugarlabs.png",
-        "tagline": "Linux Desktop Environment \u00e2\u20ac\u201c Python / GTK",
+        "tagline": "Linux Desktop Environment — Python / GTK",
         "role": "Core contributor to Sugar Learning Environment.",
         "contributions": [
           "Fixed datastore restart handling after DBus disconnect",
