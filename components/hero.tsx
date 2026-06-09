@@ -11,15 +11,7 @@ export function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left — Main content */}
           <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold"
-            >
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Available for new opportunities
-            </motion.div>
+
 
             <div>
               <motion.h1
