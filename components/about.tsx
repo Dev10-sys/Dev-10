@@ -118,7 +118,6 @@ export function About() {
           >
             <h3 className="text-2xl font-black text-foreground mb-8">Milestones</h3>
             <div className="space-y-8">
-            <div className="space-y-8">
               {[
                 {
                   year: "",
