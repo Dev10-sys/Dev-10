@@ -118,37 +118,46 @@ export function About() {
           >
             <h3 className="text-2xl font-black text-foreground mb-8">Milestones</h3>
             <div className="space-y-8">
+            <div className="space-y-8">
               {[
                 {
-                  year: "2026",
+                  year: "",
                   title: "Google Summer of Code",
                   org: "Sugar Labs",
-                  desc: "Selected contributor. Linux Desktop (Python/GTK/D-Bus).",
+                  desc: "Building modern Linux desktop experiences with GTK4 and Python.",
+                  color: "#eab308", // Yellow
+                  logo: "https://github.com/sugarlabs.png"
                 },
                 {
-                  year: "2025",
+                  year: "",
                   title: "LFX Mentorship",
                   org: "Web3j (LFDT)",
-                  desc: "Protocol-level reliability improvements and memory leak resolution in JVM clients.",
+                  desc: "Core protocol engineering and reliability improvements for Web3j.",
+                  color: "#3b82f6", // Blue
+                  logo: "https://github.com/web3j.png"
                 },
                 {
-                  year: "2024–25",
+                  year: "",
                   title: "Open Source Contributions",
                   org: "11+ Organizations",
                   desc: "100+ PRs across Web3j, Hyperledger, SONiC, CHAOSS, Chicago PCDC and more.",
+                  color: "#737373", // Gray
+                  logo: "https://github.com/github.png"
                 },
               ].map((item, i) => (
-                <div key={i} className="relative pl-8">
+                <div key={i} className="relative pl-12">
                   <div 
-                    className="absolute left-0 top-1.5 w-3 h-3 rounded-full border-2 border-background bg-foreground"
-                  />
+                    className="absolute left-0 top-1 w-6 h-6 rounded-full overflow-hidden border border-border bg-background flex items-center justify-center"
+                    style={{ borderColor: item.color }}
+                  >
+                    <img src={item.logo} alt={item.org} className="w-full h-full object-cover" />
+                  </div>
                   {i !== 2 && (
-                    <div className="absolute left-[5px] top-4 bottom-[-2rem] w-0.5 bg-border" />
+                    <div className="absolute left-[11px] top-8 bottom-[-2rem] w-[2px] bg-border" />
                   )}
                   <div className="space-y-1">
-                    <div className="flex items-center gap-3">
-                      <span className="text-sm font-bold text-muted-foreground">{item.year}</span>
-                      <h4 className="text-lg font-bold text-foreground">{item.title}</h4>
+                    <div className="flex items-center gap-2">
+                      <h4 className="text-lg font-bold" style={{ color: item.color }}>{item.title}</h4>
                     </div>
                     <div className="font-bold text-foreground/80">{item.org}</div>
                     <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>

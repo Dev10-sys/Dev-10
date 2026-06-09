@@ -2,7 +2,7 @@
   "hero": {
     "name": "Dev",
     "role": "Systems & Secure Infrastructure",
-    "tagline": "Dev — Systems • Security • Infrastructure",
+    "tagline": "Dev \u00e2\u20ac\u201d Systems \u00e2\u20ac\u00a2 Security \u00e2\u20ac\u00a2 Infrastructure",
     "mainHeading": "Hi, I'm Dev.",
     "subline": "Software Engineer & Open Source Contributor.",
     "primaryCta": {
@@ -43,10 +43,35 @@
         "Transaction Encoding (EIP-4844)",
         "Wallet Integration (Lightning / NWC)"
       ],
-      "Languages": ["Java (Protocol-level)", "TypeScript/JS", "Python", "C/C++", "SQL", "Bash"],
-      "Frameworks": ["Web Development", "Full Stack", "Node.js", "Express.js", "React/Next.js", "REST APIs", "Spring Boot"],
-      "Databases": ["PostgreSQL", "Redis", "Supabase"],
-      "Tools": ["Git", "Docker", "Kubernetes", "CI/CD & GitHub Actions", "Postman / API Testing"]
+      "Languages": [
+        "Java (Protocol-level)",
+        "TypeScript/JS",
+        "Python",
+        "C/C++",
+        "SQL",
+        "Bash"
+      ],
+      "Frameworks": [
+        "Web Development",
+        "Full Stack",
+        "Node.js",
+        "Express.js",
+        "React/Next.js",
+        "REST APIs",
+        "Spring Boot"
+      ],
+      "Databases": [
+        "PostgreSQL",
+        "Redis",
+        "Supabase"
+      ],
+      "Tools": [
+        "Git",
+        "Docker",
+        "Kubernetes",
+        "CI/CD & GitHub Actions",
+        "Postman / API Testing"
+      ]
     },
     "headshot": {
       "path": "/images/profile.png",
@@ -57,7 +82,13 @@
     {
       "title": "NWC Tester",
       "description": "High-precision protocol debugging laboratory for Nostr Wallet Connect (NWC) and Lightning integrations.",
-      "tech": ["Nostr Protocol", "Lightning Network", "JSON-RPC", "Bitcoin Connect", "Real-time Logging"],
+      "tech": [
+        "Nostr Protocol",
+        "Lightning Network",
+        "JSON-RPC",
+        "Bitcoin Connect",
+        "Real-time Logging"
+      ],
       "highlights": [
         "The 'Ultimate Testing Lab' for developers building Nostr-integrated wallets & apps",
         "Full-spectrum protocol validation for get_balance, pay_invoice, and keysend commands",
@@ -67,12 +98,21 @@
       ],
       "repo": "https://github.com/Dev10-sys/nwc-tester",
       "live": "https://nwc-tester.vercel.app",
-      "image": { "path": "", "alt": "NWC Tester Laboratory Interface" }
+      "image": {
+        "path": "",
+        "alt": "NWC Tester Laboratory Interface"
+      }
     },
     {
       "title": "BTC HashFrame",
       "description": "Built a client-side QR engine so sensitive data never leaves the device.",
-      "tech": ["Next.js 15", "TypeScript", "Cryptographic Validation", "Tailwind", "Client-Side Encoding"],
+      "tech": [
+        "Next.js 15",
+        "TypeScript",
+        "Cryptographic Validation",
+        "Tailwind",
+        "Client-Side Encoding"
+      ],
       "highlights": [
         "Implemented full client-side QR generation without server transmission",
         "Added validation layer for BIP21, PSBT, descriptors",
@@ -82,12 +122,21 @@
       ],
       "repo": "https://github.com/Dev10-sys/btc-hashframe",
       "live": "https://btc-hashframe.vercel.app",
-      "image": { "path": "", "alt": "" }
+      "image": {
+        "path": "",
+        "alt": ""
+      }
     },
     {
       "title": "SHINRA Labs",
       "description": "AI Data Labeling Infrastructure Platform with task lifecycle management and marketplace model.",
-      "tech": ["React", "Supabase", "PostgreSQL", "Tailwind", "Realtime Systems"],
+      "tech": [
+        "React",
+        "Supabase",
+        "PostgreSQL",
+        "Tailwind",
+        "Realtime Systems"
+      ],
       "highlights": [
         "Modular frontend architecture using React + Vite",
         "Role-based workflow system (Company / Freelancer model)",
@@ -97,7 +146,10 @@
       ],
       "repo": "https://github.com/Dev10-sys/shinra-labs",
       "live": "",
-      "image": { "path": "", "alt": "" }
+      "image": {
+        "path": "",
+        "alt": ""
+      }
     }
   ],
   "openSource": {
@@ -106,13 +158,18 @@
       "totalPRs": "100+",
       "mergedPRs": "100+",
       "orgs": "11+",
-      "languages": ["Go", "Python", "TypeScript", "JavaScript"]
+      "languages": [
+        "Go",
+        "Python",
+        "TypeScript",
+        "JavaScript"
+      ]
     },
     "organizations": [
       {
         "name": "SugarLabs",
         "logo": "https://github.com/sugarlabs.png",
-        "tagline": "Linux Desktop Environment – Python / GTK",
+        "tagline": "Linux Desktop Environment \u00e2\u20ac\u201c Python / GTK",
         "role": "Core contributor to Sugar Learning Environment.",
         "contributions": [
           "Fixed datastore restart handling after DBus disconnect",
@@ -122,8 +179,12 @@
           "Modal handling improvements in ActivityChooser"
         ],
         "impact": "Improved system stability, input reliability, and UI behavior across core desktop components.",
-        "tech": ["Python", "GTK", "D-Bus"],
-        "link": "https://github.com/sugarlabs/sugar/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+        "tech": [
+          "Python",
+          "GTK",
+          "D-Bus"
+        ],
+        "link": "https://github.com/sugarlabs/sugar/pulls?q=is%3Apr+author%3ADev10-sys"
       },
       {
         "name": "Web3j (LFDT)",
@@ -141,8 +202,12 @@
           "https://github.com/LFDT-web3j/web3j/pull/2255",
           "https://github.com/LFDT-web3j/web3j/pull/2254"
         ],
-        "tech": ["Java", "Ethereum", "EIP-4844"],
-        "link": "https://github.com/LFDT-web3j/web3j/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+        "tech": [
+          "Java",
+          "Ethereum",
+          "EIP-4844"
+        ],
+        "link": "https://github.com/LFDT-web3j/web3j/pulls?q=is%3Apr+author%3ADev10-sys"
       },
       {
         "name": "OpenSSF (RSTUF)",
@@ -165,8 +230,12 @@
           "https://github.com/repository-service-tuf/helm-charts/pull/57",
           "https://github.com/repository-service-tuf/helm-charts/pull/56"
         ],
-        "tech": ["Python", "Docker", "Security"],
-        "link": "https://github.com/repository-service-tuf/repository-service-tuf/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+        "tech": [
+          "Python",
+          "Docker",
+          "Security"
+        ],
+        "link": "https://github.com/repository-service-tuf/repository-service-tuf/pulls?q=is%3Apr+author%3ADev10-sys"
       },
       {
         "name": "Hyperledger Cacti",
@@ -187,8 +256,12 @@
           "https://github.com/hyperledger-cacti/cacti/pull/4179",
           "https://github.com/hyperledger-cacti/cacti/pull/4176"
         ],
-        "tech": ["TypeScript", "Docker", "Blockchain"],
-        "link": "https://github.com/hyperledger-cacti/cacti/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+        "tech": [
+          "TypeScript",
+          "Docker",
+          "Blockchain"
+        ],
+        "link": "https://github.com/hyperledger-cacti/cacti/pulls?q=is%3Apr+author%3ADev10-sys"
       },
       {
         "name": "Hyperledger Identus",
@@ -200,11 +273,15 @@
           "Corrected UUID module resolution for strict ES imports"
         ],
         "impact": "Restored test suite stability for OutOfBandInvitation flows in the TypeScript SDK.",
-        "tech": ["TypeScript", "SSI", "DIDComm"],
+        "tech": [
+          "TypeScript",
+          "SSI",
+          "DIDComm"
+        ],
         "links": [
           "https://github.com/hyperledger-identus/sdk-ts/pull/591"
         ],
-        "link": "https://github.com/hyperledger-identus/sdk-ts/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+        "link": "https://github.com/hyperledger-identus/sdk-ts/pulls?q=is%3Apr+author%3ADev10-sys"
       },
       {
         "name": "SONiC",
@@ -220,8 +297,12 @@
           "https://github.com/sonic-net/sonic-mgmt/pull/23181",
           "https://github.com/sonic-net/sonic-mgmt/pull/23171"
         ],
-        "tech": ["Python", "IPv6", "Networking"],
-        "link": "https://github.com/sonic-net/sonic-mgmt/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+        "tech": [
+          "Python",
+          "IPv6",
+          "Networking"
+        ],
+        "link": "https://github.com/sonic-net/sonic-mgmt/pulls?q=is%3Apr+author%3ADev10-sys"
       },
       {
         "name": "Chicago Pediatric Cancer Data Commons",
@@ -237,8 +318,12 @@
           "https://github.com/chicagopcdc/Automated-Matching-of-Patients-to-Clinical-Trials/pull/4",
           "https://github.com/chicagopcdc/Automated-Matching-of-Patients-to-Clinical-Trials/pull/3"
         ],
-        "tech": ["Python", "Jupyter", "Machine Learning"],
-        "link": "https://github.com/chicagopcdc/Automated-Matching-of-Patients-to-Clinical-Trials/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+        "tech": [
+          "Python",
+          "Jupyter",
+          "Machine Learning"
+        ],
+        "link": "https://github.com/chicagopcdc/Automated-Matching-of-Patients-to-Clinical-Trials/pulls?q=is%3Apr+author%3ADev10-sys"
       },
       {
         "name": "CHAOSS",
@@ -255,8 +340,12 @@
           "https://github.com/chaoss/grimoirelab-perceval/pull/885",
           "https://github.com/chaoss/community/pull/765"
         ],
-        "tech": ["Python", "Data Analytics", "API"],
-        "link": "https://github.com/chaoss/grimoirelab-perceval/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
+        "tech": [
+          "Python",
+          "Data Analytics",
+          "API"
+        ],
+        "link": "https://github.com/chaoss/grimoirelab-perceval/pulls?q=is%3Apr+author%3ADev10-sys"
       }
     ]
   },
@@ -269,7 +358,10 @@
   "seo": {
     "title": "Dev10-sys - Software Developer",
     "description": "Software Developer with a focus on systems, security, and open source infrastructure.",
-    "ogImage": { "path": "/images/og.jpg", "alt": "Portfolio preview image" }
+    "ogImage": {
+      "path": "/images/og.jpg",
+      "alt": "Portfolio preview image"
+    }
   },
   "theme": {
     "accent": "#f7931a",

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Github, Twitter } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -40,7 +40,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="font-black text-xl tracking-tighter text-foreground group relative">
             Dev
-            <span className="text-primary group-hover:opacity-100 opacity-0 transition-opacity">.</span>
+            <span className="text-foreground group-hover:opacity-100 opacity-0 transition-opacity">.</span>
           </Link>
 
           {/* Desktop Links */}
@@ -58,7 +58,7 @@ export function Navbar() {
                   {isActive && (
                     <motion.div
                       layoutId="active-nav-pill"
-                      className="absolute inset-0 bg-primary/10 rounded-full"
+                      className="absolute inset-0 bg-foreground/10 rounded-full"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -66,6 +66,15 @@ export function Navbar() {
                 </Link>
               );
             })}
+            
+            <div className="w-px h-4 bg-border mx-2" />
+            
+            <a href="https://github.com/Dev10-sys" target="_blank" rel="noreferrer" className="p-2 text-muted-foreground hover:text-foreground transition-colors hover:scale-110">
+              <Github className="w-4 h-4" />
+            </a>
+            <a href="https://twitter.com/Dev10_shadow" target="_blank" rel="noreferrer" className="p-2 text-muted-foreground hover:text-foreground transition-colors hover:scale-110">
+              <Twitter className="w-4 h-4" />
+            </a>
           </div>
 
           {/* Mobile Toggle */}

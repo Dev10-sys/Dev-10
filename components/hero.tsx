@@ -81,15 +81,14 @@ export function Hero() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                { label: "Linux Systems", icon: Terminal, sub: "Wayland / CLI / D-Bus" },
-                { label: "Web Development", icon: Code2, sub: "React / Node / APIs" },
-                { label: "Full Stack", icon: Server, sub: "Postgres / Next.js" },
-                { label: "Blockchain", icon: Zap, sub: "Lightning / Web3j" },
+                { label: "Linux Systems", icon: Terminal },
+                { label: "Web Development", icon: Code2 },
+                { label: "Full Stack", icon: Server },
+                { label: "Blockchain", icon: Zap },
               ].map((skill, i) => (
-                <div key={i} className="modern-card p-6 relative overflow-hidden group">
-                  <skill.icon className="w-6 h-6 mb-4 text-foreground/80" />
-                  <div className="font-bold text-foreground mb-1">{skill.label}</div>
-                  <div className="text-xs text-muted-foreground">{skill.sub}</div>
+                <div key={i} className="modern-card p-6 relative overflow-hidden group flex flex-col items-center justify-center text-center">
+                  <skill.icon className="w-8 h-8 mb-4 text-foreground/80 group-hover:text-primary transition-colors" />
+                  <div className="font-bold text-foreground text-lg">{skill.label}</div>
                 </div>
               ))}
             </div>

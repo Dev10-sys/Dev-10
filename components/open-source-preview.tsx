@@ -94,7 +94,7 @@ export function OpenSourcePreview() {
               className="inline-flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg bg-secondary text-secondary-foreground text-xs font-bold hover:bg-primary hover:text-primary-foreground transition-colors mt-auto"
             >
               <ExternalLink className="w-3.5 h-3.5" />
-              View Merged PRs
+              My Contributions
             </a>
           </motion.div>
         ))}
