@@ -2,16 +2,14 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Zap, Server, Code2, Terminal } from "lucide-react";
+import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-12">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-12">
       {/* Background atmosphere */}
-      <div className="absolute rounded-full pointer-events-none opacity-10 filter blur-[80px]" style={{ left: "-10%", top: "10%", width: "600px", height: "600px", background: "#f7931a" }} />
-      <div className="absolute rounded-full pointer-events-none opacity-10 filter blur-[80px]" style={{ left: "60%", top: "60%", width: "500px", height: "500px", background: "#7c3aed" }} />
-
-      {/* Grid overlay */}
-      <div className="absolute inset-0 grid-overlay opacity-60 pointer-events-none" />
+      <div className="absolute rounded-full pointer-events-none opacity-[0.03] filter blur-[80px]" style={{ left: "-10%", top: "10%", width: "600px", height: "600px", background: "var(--primary)" }} />
+      <div className="absolute rounded-full pointer-events-none opacity-[0.03] filter blur-[80px]" style={{ left: "60%", top: "60%", width: "500px", height: "500px", background: "var(--primary)" }} />
 
       <div className="container mx-auto px-4 relative z-10 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -21,7 +19,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-mono text-xs font-bold"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold"
             >
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               Available for new opportunities
@@ -34,7 +32,7 @@ export function Hero() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-5xl md:text-7xl font-black tracking-tighter text-foreground leading-[1.1]"
               >
-                Hi, I'm <span className="text-primary">Dev</span>.
+                Hi, I'm <span className="gradient-text">Dev</span>.
                 <br />
                 I build robust software.
               </motion.h1>
@@ -57,8 +55,8 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-wrap gap-4 pt-2"
             >
-              <a
-                href="#projects"
+              <Link
+                href="/projects"
                 className="group relative flex items-center gap-3 px-8 py-3.5 rounded-xl font-bold text-sm text-black transition-all hover:scale-105 active:scale-95"
                 style={{
                   background: "linear-gradient(135deg, #f7931a, #ffbd2e)",
@@ -68,7 +66,7 @@ export function Hero() {
                 <Zap className="w-4 h-4" />
                 View My Work
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              </Link>
 
               <a
                 href="https://github.com/Dev10-sys"
@@ -89,33 +87,30 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="space-y-4"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 { label: "Linux Systems", icon: Terminal, color: "#10b981", sub: "Wayland / CLI / D-Bus" },
                 { label: "Web Development", icon: Code2, color: "#7c3aed", sub: "React / Node / APIs" },
                 { label: "Full Stack", icon: Server, color: "#06b6d4", sub: "Postgres / Next.js" },
                 { label: "Blockchain", icon: Zap, color: "#f7931a", sub: "Lightning / Web3j" },
               ].map((skill, i) => (
-                <div key={i} className="os-window p-5 relative overflow-hidden group hover:border-primary/30 transition-all">
-                  <skill.icon className="w-6 h-6 mb-3" style={{ color: skill.color }} />
+                <div key={i} className="modern-card p-6 relative overflow-hidden group">
+                  <skill.icon className="w-6 h-6 mb-4" style={{ color: skill.color }} />
                   <div className="font-bold text-foreground mb-1">{skill.label}</div>
-                  <div className="font-mono text-[10px] text-muted-foreground/60 tracking-widest">{skill.sub}</div>
+                  <div className="text-xs text-muted-foreground">{skill.sub}</div>
                 </div>
               ))}
             </div>
 
-            <div className="os-window overflow-hidden">
-              <div className="os-window-header border-b border-white/5 pb-3">
-                <div className="os-dot os-dot-red" />
-                <div className="os-dot os-dot-yellow" />
-                <div className="os-dot os-dot-green" />
-                <span className="ml-2 font-mono text-[10px] text-muted-foreground/50">github-activity</span>
+            <div className="modern-card overflow-hidden">
+              <div className="px-6 py-4 border-b border-border bg-muted/20">
+                <span className="text-sm font-bold text-foreground">GitHub Activity</span>
               </div>
-              <div className="p-4 bg-background/50">
+              <div className="p-6 bg-card flex justify-center">
                 <img
                   src="https://ghchart.rshah.org/F7931A/Dev10-sys"
                   alt="GitHub contribution chart"
-                  className="w-full rounded opacity-90"
+                  className="w-full opacity-90 dark:opacity-80"
                   style={{ filter: "brightness(0.9) contrast(1.1)" }}
                 />
               </div>

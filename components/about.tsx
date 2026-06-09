@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import site from "@/data/site.json";
-import { MapPin, GraduationCap, Code2, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 const fadeUp = {
@@ -18,16 +18,16 @@ export function About() {
   const profile = site.profile;
 
   const systemInfo = [
-    { key: "OS", value: "Ubuntu / Arch (daily driver)" },
+    { key: "OS", value: "Ubuntu / Arch" },
     { key: "Role", value: "Full-Stack + Systems Dev" },
     { key: "Focus", value: "Blockchain · Security · AI" },
     { key: "Status", value: "Open to Opportunities", highlight: true },
     { key: "Location", value: profile.location },
-    { key: "Education", value: "B.Tech CS (AI/ML specialization)" },
+    { key: "Education", value: "B.Tech CS (AI/ML)" },
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-8">
+    <div className="w-full max-w-7xl mx-auto px-4 py-16">
       {/* Section header */}
       <motion.div
         custom={0}
@@ -37,142 +37,87 @@ export function About() {
         viewport={{ once: true }}
         className="flex items-center gap-4 mb-16"
       >
-        <div className="font-mono text-xs text-primary/50 tracking-[0.3em] uppercase">01 /</div>
-        <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-foreground">About</h2>
-        <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(248,147,26,0.3), transparent)" }} />
+        <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-foreground">About Me</h2>
+        <div className="flex-1 h-px bg-border" />
       </motion.div>
 
-      <div className="grid lg:grid-cols-2 gap-10">
-        {/* Left — Profile + System info panel */}
-        <div className="space-y-6">
-          {/* Profile image window */}
+      <div className="grid lg:grid-cols-12 gap-10">
+        {/* Left — Profile Image & Quick Info */}
+        <div className="lg:col-span-4 space-y-6">
           <motion.div
             custom={1}
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="os-window overflow-hidden"
+            className="modern-card overflow-hidden"
           >
-            <div className="os-window-header">
-              <div className="os-dot os-dot-red" />
-              <div className="os-dot os-dot-yellow" />
-              <div className="os-dot os-dot-green" />
-              <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">Profile Photo</span>
-            </div>
-            <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="relative aspect-square overflow-hidden">
               <Image
                 src="/images/profile.png"
                 alt="Dev10-sys"
                 fill
-                className="object-cover"
+                className="object-cover transition-transform hover:scale-105 duration-700"
                 priority
               />
-              {/* Overlay */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: "linear-gradient(to top, rgba(5,5,8,0.8) 0%, rgba(5,5,8,0.1) 50%, transparent 100%)",
-                }}
-              />
-              {/* Bottom info */}
-              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
                 <div>
-                  <div className="font-black text-xl text-foreground">Dev</div>
-                  <div className="font-mono text-xs text-primary/70">@Dev10-sys</div>
-                </div>
-                <div className="flex gap-2">
-                  <a
-                    href="https://github.com/Dev10-sys"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-[10px] transition-all hover:scale-105"
-                    style={{ background: "rgba(13,13,20,0.9)", border: "1px solid rgba(248,147,26,0.2)", color: "rgba(248,147,26,0.8)" }}
-                  >
-                    <ExternalLink className="w-3 h-3" />
-                    GitHub
-                  </a>
+                  <div className="font-black text-2xl text-white">Dev</div>
+                  <div className="text-sm text-primary font-medium">@Dev10-sys</div>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* System info panel */}
           <motion.div
             custom={2}
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="os-window overflow-hidden"
+            className="modern-card p-6 space-y-3"
           >
-            <div className="os-window-header">
-              <div className="os-dot os-dot-red" />
-              <div className="os-dot os-dot-yellow" />
-              <div className="os-dot os-dot-green" />
-              <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">System Information</span>
-            </div>
-            <div className="p-5 font-mono text-xs space-y-2">
-              {systemInfo.map(({ key, value, highlight }, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <span className="text-primary/60 w-20 shrink-0">{key}</span>
-                  <span className="text-muted-foreground/30">:</span>
-                  <span className={highlight ? "text-green-400" : "text-foreground/70"}>
-                    {highlight && <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 mr-2 animate-pulse" />}
-                    {value}
-                  </span>
-                </div>
-              ))}
-            </div>
+            <h3 className="text-sm font-bold text-foreground mb-4 uppercase tracking-wider text-muted-foreground">Snapshot</h3>
+            {systemInfo.map(({ key, value, highlight }, i) => (
+              <div key={i} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-sm">
+                <span className="text-muted-foreground w-24 shrink-0 font-medium">{key}</span>
+                <span className={highlight ? "text-primary font-bold flex items-center gap-2" : "text-foreground font-medium"}>
+                  {highlight && <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />}
+                  {value}
+                </span>
+              </div>
+            ))}
           </motion.div>
         </div>
 
-        {/* Right — Bio + Highlights */}
-        <div className="space-y-6">
-          {/* Bio window */}
+        {/* Right — Bio & Milestones */}
+        <div className="lg:col-span-8 space-y-6">
           <motion.div
             custom={1}
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="os-window overflow-hidden"
+            className="modern-card p-8 md:p-10"
           >
-            <div className="os-window-header">
-              <div className="os-dot os-dot-red" />
-              <div className="os-dot os-dot-yellow" />
-              <div className="os-dot os-dot-green" />
-              <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">About Me</span>
-            </div>
-            <div className="p-6 space-y-4">
-              <div>
-                <p className="text-foreground/80 leading-relaxed text-base font-medium">
-                  {profile.shortBio}
-                </p>
-              </div>
-              <div className="h-px" style={{ background: "rgba(248,147,26,0.1)" }} />
-              <p className="text-muted-foreground leading-relaxed">
-                {profile.longBio}
-              </p>
+            <h3 className="text-2xl font-black text-foreground mb-6">The Journey</h3>
+            <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
+              <p className="text-foreground font-medium">{profile.shortBio}</p>
+              <p>{profile.longBio}</p>
             </div>
           </motion.div>
 
-          {/* Achievement timeline */}
           <motion.div
             custom={2}
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="os-window overflow-hidden"
+            className="modern-card p-8 md:p-10"
           >
-            <div className="os-window-header">
-              <div className="os-dot os-dot-red" />
-              <div className="os-dot os-dot-yellow" />
-              <div className="os-dot os-dot-green" />
-              <span className="ml-2 font-mono text-[10px] text-muted-foreground/40">Milestones</span>
-            </div>
-            <div className="p-5 space-y-4">
+            <h3 className="text-2xl font-black text-foreground mb-8">Milestones</h3>
+            <div className="space-y-8">
               {[
                 {
                   year: "2026",
@@ -180,7 +125,6 @@ export function About() {
                   org: "Sugar Labs",
                   desc: "Selected contributor. Linux Desktop (Python/GTK/D-Bus).",
                   color: "#EA4335",
-                  badge: "GSoC",
                 },
                 {
                   year: "2025",
@@ -188,7 +132,6 @@ export function About() {
                   org: "Web3j (LFDT)",
                   desc: "Protocol-level reliability improvements and memory leak resolution in JVM clients.",
                   color: "#f7931a",
-                  badge: "LFX",
                 },
                 {
                   year: "2024–25",
@@ -196,70 +139,27 @@ export function About() {
                   org: "11+ Organizations",
                   desc: "100+ PRs across Web3j, Hyperledger, SONiC, CHAOSS, Chicago PCDC and more.",
                   color: "#7c3aed",
-                  badge: "OSS",
                 },
               ].map((item, i) => (
-                <div key={i} className="flex gap-4">
-                  <div className="flex flex-col items-center gap-1 shrink-0">
-                    <div
-                      className="w-8 h-8 rounded-lg flex items-center justify-center font-mono text-[9px] font-black"
-                      style={{ background: `${item.color}15`, border: `1px solid ${item.color}30`, color: item.color }}
-                    >
-                      {item.badge}
+                <div key={i} className="relative pl-8">
+                  <div 
+                    className="absolute left-0 top-1.5 w-3 h-3 rounded-full border-2 border-background"
+                    style={{ backgroundColor: item.color, boxShadow: `0 0 10px ${item.color}40` }}
+                  />
+                  {i !== 2 && (
+                    <div className="absolute left-[5px] top-4 bottom-[-2rem] w-0.5 bg-border" />
+                  )}
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm font-bold text-muted-foreground">{item.year}</span>
+                      <h4 className="text-lg font-bold" style={{ color: item.color }}>{item.title}</h4>
                     </div>
-                    {i < 2 && (
-                      <div className="w-px flex-1" style={{ background: "rgba(248,147,26,0.1)" }} />
-                    )}
-                  </div>
-                  <div className="pb-4 space-y-1">
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono text-[10px] text-muted-foreground/40">{item.year}</span>
-                      <div
-                        className="font-black text-sm"
-                        style={{ color: item.color }}
-                      >
-                        {item.title}
-                      </div>
-                    </div>
-                    <div className="font-mono text-[11px] text-muted-foreground/50">{item.org}</div>
-                    <p className="text-foreground/60 text-xs leading-relaxed">{item.desc}</p>
+                    <div className="font-bold text-foreground">{item.org}</div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
-          </motion.div>
-
-          {/* Quick links */}
-          <motion.div
-            custom={3}
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex gap-3"
-          >
-            <a
-              href="#projects"
-              className="flex-1 py-3 rounded-xl text-center font-bold text-sm transition-all hover:scale-105"
-              style={{
-                background: "linear-gradient(135deg, rgba(248,147,26,0.15), rgba(248,147,26,0.05))",
-                border: "1px solid rgba(248,147,26,0.2)",
-                color: "#f7931a",
-              }}
-            >
-              View Projects
-            </a>
-            <a
-              href="#contact"
-              className="flex-1 py-3 rounded-xl text-center font-bold text-sm transition-all hover:scale-105"
-              style={{
-                background: "rgba(13,13,20,0.6)",
-                border: "1px solid rgba(248,147,26,0.1)",
-                color: "rgba(232,232,240,0.6)",
-              }}
-            >
-              Get in Touch
-            </a>
           </motion.div>
         </div>
       </div>

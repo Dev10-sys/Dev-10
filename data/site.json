@@ -7,7 +7,7 @@
     "subline": "Focused on reliability, security, and real-world performance.",
     "primaryCta": {
       "label": "Explore Engineering Work",
-      "url": "#projects"
+      "url": "/projects"
     },
     "secondaryCta": {
       "label": "View Source Code",
@@ -111,6 +111,7 @@
     "organizations": [
       {
         "name": "SugarLabs",
+        "logo": "https://github.com/sugarlabs.png",
         "tagline": "Linux Desktop Environment – Python / GTK",
         "role": "Core contributor to Sugar Learning Environment.",
         "contributions": [
@@ -122,10 +123,11 @@
         ],
         "impact": "Improved system stability, input reliability, and UI behavior across core desktop components.",
         "tech": ["Python", "GTK", "D-Bus"],
-        "link": "https://github.com/sugarlabs/sugar/pulls?q=is%3Apr+author%3ADev10-sys+%28is%3Aopen+OR+is%3Amerged%29"
+        "link": "https://github.com/sugarlabs/sugar/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       },
       {
         "name": "Web3j (LFDT)",
+        "logo": "https://github.com/web3j.png",
         "tagline": "Blockchain protocol fixes and JVM-level reliability improvements",
         "role": "Contributor",
         "contributions": [
@@ -140,11 +142,12 @@
           "https://github.com/LFDT-web3j/web3j/pull/2254"
         ],
         "tech": ["Java", "Ethereum", "EIP-4844"],
-        "link": "https://github.com/LFDT-web3j/web3j/pulls?q=is%3Apr+author%3ADev10-sys+%28is%3Aopen+OR+is%3Amerged%29"
+        "link": "https://github.com/LFDT-web3j/web3j/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       },
       {
         "name": "OpenSSF (RSTUF)",
-        "tagline": "Production security hardening across distributed services (non-root container enforcement)",
+        "logo": "https://github.com/repository-service-tuf.png",
+        "tagline": "Production security hardening across distributed services",
         "role": "Contributor",
         "contributions": [
           "Enforced non-root container execution across distributed microservices",
@@ -163,11 +166,12 @@
           "https://github.com/repository-service-tuf/helm-charts/pull/56"
         ],
         "tech": ["Python", "Docker", "Security"],
-        "link": "https://github.com/repository-service-tuf/repository-service-tuf/pulls?q=is%3Apr+author%3ADev10-sys+%28is%3Aopen+OR+is%3Amerged%29"
+        "link": "https://github.com/repository-service-tuf/repository-service-tuf/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       },
       {
         "name": "Hyperledger Cacti",
-        "tagline": "Enterprise blockchain infra, dependency security, and protocol feature development",
+        "logo": "https://github.com/hyperledger.png",
+        "tagline": "Enterprise blockchain infra, dependency security",
         "role": "Contributor",
         "contributions": [
           "Fixed docker test crash loops affecting CI stability",
@@ -184,10 +188,11 @@
           "https://github.com/hyperledger-cacti/cacti/pull/4176"
         ],
         "tech": ["TypeScript", "Docker", "Blockchain"],
-        "link": "https://github.com/hyperledger-cacti/cacti/pulls?q=is%3Apr+author%3ADev10-sys+%28is%3Aopen+OR+is%3Amerged%29"
+        "link": "https://github.com/hyperledger-cacti/cacti/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       },
       {
         "name": "Hyperledger Identus",
+        "logo": "https://github.com/hyperledger.png",
         "tagline": "Enterprise SSI and Verifiable Credentials SDK",
         "role": "Contributor",
         "contributions": [
@@ -199,11 +204,12 @@
         "links": [
           "https://github.com/hyperledger-identus/sdk-ts/pull/591"
         ],
-        "link": "https://github.com/hyperledger-identus/sdk-ts/pulls?q=is%3Apr+author%3ADev10-sys+%28is%3Aopen+OR+is%3Amerged%29"
+        "link": "https://github.com/hyperledger-identus/sdk-ts/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       },
       {
         "name": "SONiC",
-        "tagline": "Network infrastructure testing (IPv6 environments and VOQ systems)",
+        "logo": "https://github.com/sonic-net.png",
+        "tagline": "Network infrastructure testing",
         "role": "Contributor",
         "contributions": [
           "Enabled IPv6-only environment testing for COPP",
@@ -215,11 +221,12 @@
           "https://github.com/sonic-net/sonic-mgmt/pull/23171"
         ],
         "tech": ["Python", "IPv6", "Networking"],
-        "link": "https://github.com/sonic-net/sonic-mgmt/pulls?q=is%3Apr+author%3ADev10-sys+%28is%3Aopen+OR+is%3Amerged%29"
+        "link": "https://github.com/sonic-net/sonic-mgmt/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       },
       {
         "name": "Chicago Pediatric Cancer Data Commons",
-        "tagline": "Healthcare ML pipeline fixes and dynamic clinical trial matching system",
+        "logo": "https://github.com/chicagopcdc.png",
+        "tagline": "Healthcare ML pipeline fixes",
         "role": "Contributor",
         "contributions": [
           "Fixed execution issues in ML pipeline notebooks",
@@ -231,10 +238,11 @@
           "https://github.com/chicagopcdc/Automated-Matching-of-Patients-to-Clinical-Trials/pull/3"
         ],
         "tech": ["Python", "Jupyter", "Machine Learning"],
-        "link": "https://github.com/chicagopcdc/Automated-Matching-of-Patients-to-Clinical-Trials/pulls?q=is%3Apr+author%3ADev10-sys+%28is%3Aopen+OR+is%3Amerged%29"
+        "link": "https://github.com/chicagopcdc/Automated-Matching-of-Patients-to-Clinical-Trials/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       },
       {
         "name": "CHAOSS",
+        "logo": "https://github.com/chaoss.png",
         "tagline": "Open Source Metrics & Data Science",
         "role": "Contributor",
         "contributions": [
@@ -248,7 +256,7 @@
           "https://github.com/chaoss/community/pull/765"
         ],
         "tech": ["Python", "Data Analytics", "API"],
-        "link": "https://github.com/chaoss/grimoirelab-perceval/pulls?q=is%3Apr+author%3ADev10-sys+%28is%3Aopen+OR+is%3Amerged%29"
+        "link": "https://github.com/chaoss/grimoirelab-perceval/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       }
     ]
   },

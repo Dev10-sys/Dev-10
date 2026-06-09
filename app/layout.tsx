@@ -74,6 +74,7 @@ export const metadata: Metadata = {
 
 import { CursorGlow } from "@/components/cursor-glow";
 import { GlobalBackground } from "@/components/global-background";
+import { Navbar } from "@/components/navbar";
 
 export default function RootLayout({
   children,
@@ -85,7 +86,12 @@ export default function RootLayout({
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <GlobalBackground />
         <CursorGlow />
-        <Suspense fallback={null}>{children}</Suspense>
+        <Navbar />
+        <Suspense fallback={null}>
+          <main className="pt-24 min-h-screen">
+            {children}
+          </main>
+        </Suspense>
         <Analytics />
       </body>
     </html>
