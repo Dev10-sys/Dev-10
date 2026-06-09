@@ -36,8 +36,10 @@ export function Window({
       drag={!isMaximized}
       dragMomentum={false}
       dragElastic={0}
-      initial={defaultPosition}
-      animate={isMaximized ? { x: 0, y: 32, width: "100%", height: "calc(100vh - 32px)" } : { width: defaultSize.width, height: defaultSize.height }}
+      initial={{ opacity: 0, scale: 0.9, x: defaultPosition.x, y: defaultPosition.y }}
+      animate={isMaximized 
+        ? { opacity: 1, scale: 1, x: 0, y: 32, width: "100%", height: "calc(100vh - 32px)" } 
+        : { opacity: 1, scale: 1, width: defaultSize.width, height: defaultSize.height, x: defaultPosition.x, y: defaultPosition.y }}
       transition={{ type: "spring", bounce: 0, duration: 0.3 }}
       onMouseDown={onFocus}
       className={`absolute gtk-window shadow-2xl ${isActive ? "z-40 ring-1 ring-white/10" : "z-30"}`}

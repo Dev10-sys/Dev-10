@@ -19,17 +19,17 @@ export function Desktop() {
   const apps: App[] = [
     {
       id: "about",
-      title: "Settings - About Me",
-      icon: Settings,
+      title: "My Profile",
+      icon: UserCircle,
       content: <About />,
-      defaultSize: { width: "80%", height: "80%" }
+      defaultSize: { width: "80vw", height: "80vh" }
     },
     {
       id: "projects",
       title: "Projects",
       icon: FolderGit2,
       content: <div className="p-8 text-white"><OpenSourcePreview /></div>,
-      defaultSize: { width: "85%", height: "85%" }
+      defaultSize: { width: "85vw", height: "85vh" }
     },
     {
       id: "terminal",
@@ -100,6 +100,7 @@ export function Desktop() {
             isActive={activeWindow === id}
             onFocus={() => setActiveWindow(id)}
             defaultSize={app.defaultSize}
+            defaultPosition={{ x: 40 + (openWindows.indexOf(id) * 20), y: 40 + (openWindows.indexOf(id) * 20) }}
           >
             {app.content}
           </Window>
