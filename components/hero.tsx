@@ -85,19 +85,6 @@ export function Hero() {
               ))}
             </div>
 
-            <div className="modern-card overflow-hidden">
-              <div className="px-6 py-4 border-b border-border bg-muted/20">
-                <span className="text-sm font-bold text-foreground">GitHub Activity</span>
-              </div>
-              <div className="p-6 bg-card flex justify-center">
-                <img
-                  src="https://ghchart.rshah.org/F7931A/Dev10-sys"
-                  alt="GitHub contribution chart"
-                  className="w-full opacity-90 dark:opacity-80"
-                  style={{ filter: "brightness(0.9) contrast(1.1)" }}
-                />
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
