@@ -26,18 +26,18 @@ export function OpenSourcePreview() {
         </p>
         
         <div className="flex flex-wrap gap-6 mt-8">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-              <GitMerge className="w-5 h-5 text-primary" />
+          <div className="flex items-center gap-3 group hover:scale-105 transition-all cursor-pointer">
+            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shadow-sm group-hover:shadow-primary/20">
+              <GitPullRequest className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
             </div>
             <div>
-              <div className="text-2xl font-black text-foreground">{oss.stats.mergedPRs}</div>
-              <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Merged PRs</div>
+              <div className="text-2xl font-black text-foreground">150+</div>
+              <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Pull Requests</div>
             </div>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center">
-              <GitPullRequest className="w-5 h-5 text-purple-500" />
+          <div className="flex items-center gap-3 group hover:scale-105 transition-all cursor-pointer">
+            <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors shadow-sm group-hover:shadow-purple-500/20">
+              <GitMerge className="w-5 h-5 text-purple-500 group-hover:scale-110 transition-transform" />
             </div>
             <div>
               <div className="text-2xl font-black text-foreground">{oss.stats.orgs}</div>
