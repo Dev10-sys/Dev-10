@@ -125,7 +125,8 @@ export function About() {
                   org: "Sugar Labs",
                   desc: "Building modern Linux desktop experiences with GTK4 and Python.",
                   color: "#eab308", // Yellow
-                  logo: "https://github.com/sugarlabs.png"
+                  logo: "https://github.com/sugarlabs.png",
+                  href: "https://summerofcode.withgoogle.com/programs/2024/organizations/sugar-labs"
                 },
                 {
                   year: "",
@@ -133,7 +134,8 @@ export function About() {
                   org: "Web3j (LFDT)",
                   desc: "Core protocol engineering and reliability improvements for Web3j.",
                   color: "#3b82f6", // Blue
-                  logo: "https://github.com/web3j.png"
+                  logo: "https://github.com/web3j.png",
+                  href: "https://lfx.linuxfoundation.org/mentorship/"
                 },
                 {
                   year: "",
@@ -141,7 +143,8 @@ export function About() {
                   org: "11+ Organizations",
                   desc: "100+ PRs across Web3j, Hyperledger, SONiC, CHAOSS, Chicago PCDC and more.",
                   color: "#737373", // Gray
-                  logo: "https://github.com/github.png"
+                  logo: "https://github.com/github.png",
+                  href: "https://github.com/Dev10-sys"
                 },
               ].map((item, i) => (
                 <div key={i} className="relative pl-12">
@@ -156,7 +159,10 @@ export function About() {
                   )}
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <h4 className="text-lg font-bold" style={{ color: item.color }}>{item.title}</h4>
+                      <a href={item.href} target="_blank" rel="noreferrer" className="flex items-center gap-2 group/link">
+                        <h4 className="text-lg font-bold group-hover/link:underline" style={{ color: item.color }}>{item.title}</h4>
+                        <ExternalLink className="w-3.5 h-3.5 text-muted-foreground opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                      </a>
                     </div>
                     <div className="font-bold text-foreground/80">{item.org}</div>
                     <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
