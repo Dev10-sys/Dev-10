@@ -3,11 +3,12 @@
 import { useState } from "react";
 import { TopBar } from "./top-bar";
 import { Window } from "./window";
-import { Terminal, FolderGit2, UserCircle, GitMerge, Globe } from "lucide-react";
+import { Terminal, FolderGit2, UserCircle, GitMerge, Globe, Code2 } from "lucide-react";
 import { About } from "../about";
 import { OpenSourcePreview } from "../open-source-preview";
 import { ProjectsPreview } from "../projects-preview";
 import { ImportantLinks } from "../links";
+import { SkillsPreview } from "../skills-preview";
 
 type App = {
   id: string;
@@ -31,6 +32,13 @@ export function Desktop() {
       title: "Experience",
       icon: GitMerge,
       content: <div className="p-8 text-white"><OpenSourcePreview /></div>,
+      defaultSize: { width: "85vw", height: "85vh" }
+    },
+    {
+      id: "skills",
+      title: "Skills",
+      icon: Code2,
+      content: <div className="p-8 text-white overflow-y-auto"><SkillsPreview /></div>,
       defaultSize: { width: "85vw", height: "85vh" }
     },
     {
@@ -87,28 +95,25 @@ export function Desktop() {
     <div className="relative w-full h-screen desktop-bg overflow-hidden text-foreground">
       <TopBar />
 
-      {/* Desktop Background Widget */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none flex flex-col items-center select-none opacity-50">
-        <div className="text-[10vw] font-black text-white/5 tracking-tighter drop-shadow-2xl leading-none">
-          DEV'S OS
-        </div>
-        <div className="text-xl md:text-2xl font-mono text-white/30 mt-4 tracking-[0.5em] uppercase">
-          System Core Online
-        </div>
-      </div>
-      
-      {/* Desktop Icons */}
-      <div className="pt-12 px-4 flex flex-col gap-6 w-24">
+      {/* Mac/Linux Style Dock */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 bg-black/40 backdrop-blur-2xl border border-white/10 rounded-3xl flex items-center gap-4 shadow-2xl z-50">
         {apps.map((app) => (
           <button
             key={app.id}
             onClick={() => openApp(app.id)}
-            className="flex flex-col items-center gap-1 group hover:bg-white/10 p-2 rounded-xl transition-colors"
+            className="relative group p-2 hover:bg-white/10 rounded-2xl transition-all duration-300"
           >
-            <div className="w-12 h-12 bg-black/40 border border-white/10 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-              <app.icon className="w-6 h-6 text-white" />
+            <div className="w-12 h-12 flex items-center justify-center transition-all duration-300 group-hover:scale-125 group-hover:-translate-y-4 shadow-lg group-hover:shadow-primary/20">
+              <app.icon className="w-8 h-8 text-white/90 group-hover:text-primary drop-shadow-md" />
             </div>
-            <span className="text-xs font-medium text-white drop-shadow-md text-center">{app.title.split(' - ')[0]}</span>
+            {openWindows.includes(app.id) && (
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-primary/80 rounded-full shadow-[0_0_8px_rgba(247,147,26,0.8)]" />
+            )}
+            {/* Tooltip */}
+            <div className="absolute -top-14 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-black/80 border border-white/10 text-white text-xs font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
+              {app.title}
+              <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 border-solid border-t-black/80 border-t-4 border-x-transparent border-x-4 border-b-0" />
+            </div>
           </button>
         ))}
       </div>
