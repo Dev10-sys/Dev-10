@@ -192,7 +192,7 @@
         "logo": "https://github.com/web3j.png",
         "tagline": "Blockchain protocol fixes and JVM-level reliability improvements",
         "color": "#3b82f6",
-        "role": "Contributor",
+        "role": "Core Contributor",
         "contributions": [
           "Fixed EIP-4844 transaction encoding impacting signing correctness",
           "Resolved ClassLoader memory leak in async execution layer",

@@ -183,9 +183,9 @@ html {
 }
 
 .gtk-window {
-  background-color: rgba(30, 30, 30, 0.4);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background-color: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05) inset;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -244,6 +244,6 @@ html {
 
 .gtk-content {
   flex: 1;
-  background-color: rgba(20, 20, 20, 0.4);
+  background-color: rgba(10, 10, 10, 0.7);
   overflow-y: auto;
 }

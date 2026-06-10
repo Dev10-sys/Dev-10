@@ -95,6 +95,13 @@ export function Desktop() {
     <div className="relative w-full h-screen desktop-bg overflow-hidden text-foreground z-10">
       <TopBar />
 
+      {/* Centered Watermark */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+        <h1 className="text-[12vw] font-black tracking-tighter text-white/5 select-none" style={{ textShadow: "0 0 60px rgba(247, 147, 26, 0.1)" }}>
+          DEV'S OS
+        </h1>
+      </div>
+
       {/* Mac/Linux Style Dock */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 bg-black/40 backdrop-blur-2xl border border-white/10 rounded-3xl flex items-center gap-4 shadow-2xl z-50">
         {apps.map((app) => (
