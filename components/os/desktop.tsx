@@ -3,9 +3,11 @@
 import { useState } from "react";
 import { TopBar } from "./top-bar";
 import { Window } from "./window";
-import { Terminal, FolderGit2, UserCircle, Settings } from "lucide-react";
+import { Terminal, FolderGit2, UserCircle, GitMerge, Globe } from "lucide-react";
 import { About } from "../about";
 import { OpenSourcePreview } from "../open-source-preview";
+import { ProjectsPreview } from "../projects-preview";
+import { ImportantLinks } from "../links";
 
 type App = {
   id: string;
@@ -25,22 +27,38 @@ export function Desktop() {
       defaultSize: { width: "80vw", height: "80vh" }
     },
     {
+      id: "experience",
+      title: "Experience",
+      icon: GitMerge,
+      content: <div className="p-8 text-white"><OpenSourcePreview /></div>,
+      defaultSize: { width: "85vw", height: "85vh" }
+    },
+    {
       id: "projects",
       title: "Projects",
       icon: FolderGit2,
-      content: <div className="p-8 text-white"><OpenSourcePreview /></div>,
+      content: <div className="p-8 text-white"><ProjectsPreview /></div>,
       defaultSize: { width: "85vw", height: "85vh" }
+    },
+    {
+      id: "network",
+      title: "Network",
+      icon: Globe,
+      content: <div className="p-8 text-white"><ImportantLinks /></div>,
+      defaultSize: { width: "80vw", height: "70vh" }
     },
     {
       id: "terminal",
       title: "Terminal",
       icon: Terminal,
       content: (
-        <div className="p-4 font-mono text-green-400 bg-black/90 h-full">
+        <div className="p-4 font-mono text-green-400 bg-black/90 h-full overflow-y-auto">
           <div>dev10-sys@ubuntu:~$ whoami</div>
-          <div>dev10-sys</div>
+          <div className="text-white">dev10-sys</div>
           <div>dev10-sys@ubuntu:~$ cat skills.txt</div>
-          <div className="text-white">Bitcoin · GTK4 · Linux · React · Next.js · Node.js</div>
+          <div className="text-white pb-2">Blockchain · Kotlin · Java · System Engineer · Linux · GTK · Wayland</div>
+          <div>dev10-sys@ubuntu:~$ cat fun_fact.txt</div>
+          <div className="text-white pb-2">Midnight photography of the moon with coffee.</div>
           <div>dev10-sys@ubuntu:~$ <span className="animate-pulse">_</span></div>
         </div>
       ),
@@ -68,6 +86,16 @@ export function Desktop() {
   return (
     <div className="relative w-full h-screen desktop-bg overflow-hidden text-foreground">
       <TopBar />
+
+      {/* Desktop Background Widget */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none flex flex-col items-center select-none opacity-50">
+        <div className="text-[10vw] font-black text-white/5 tracking-tighter drop-shadow-2xl leading-none">
+          DEV'S OS
+        </div>
+        <div className="text-xl md:text-2xl font-mono text-white/30 mt-4 tracking-[0.5em] uppercase">
+          System Core Online
+        </div>
+      </div>
       
       {/* Desktop Icons */}
       <div className="pt-12 px-4 flex flex-col gap-6 w-24">

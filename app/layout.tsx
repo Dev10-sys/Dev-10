@@ -9,8 +9,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://dev10-sys.vercel.app"),
   title: {
-    default: "Dev10-sys - Software Developer",
-    template: "%s | Dev10-sys",
+    default: "Dev's Portfolio - Software Engineer",
+    template: "%s | Dev's Portfolio",
   },
   description:
     "Software Developer | GSoC & Summer of Bitcoin Contributor | Building secure software solutions, Bitcoin applications, and AI-driven systems.",

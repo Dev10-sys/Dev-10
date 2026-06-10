@@ -135,7 +135,7 @@ export function About() {
                   desc: "Core protocol engineering and reliability improvements for Web3j.",
                   color: "#3b82f6", // Blue
                   logo: "https://github.com/web3j.png",
-                  href: "https://lfx.linuxfoundation.org/mentorship/"
+                  href: "https://mentorship.lfx.linuxfoundation.org/mentee/434b0dd4-2d0f-4348-ac23-40165ae406c6"
                 },
                 {
                   year: "",

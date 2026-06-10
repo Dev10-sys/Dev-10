@@ -65,7 +65,7 @@ export function ImportantLinks() {
         className="mt-8 flex justify-center"
       >
         <a
-          href="/resume.pdf"
+          href="https://drive.google.com/file/d/1X-AJpMGv7sig5BlHjEczVPKYBIyCOojN/view?usp=sharing"
           target="_blank"
           rel="noreferrer"
           className="group flex items-center gap-3 px-8 py-4 rounded-xl font-mono text-xs font-bold uppercase tracking-widest transition-all hover:scale-105 active:scale-95"
@@ -75,8 +75,8 @@ export function ImportantLinks() {
             color: "#f7931a",
           }}
         >
-          <Download className="w-4 h-4" />
-          Download Resume.pdf
+          <ExternalLink className="w-4 h-4" />
+          View Resume
         </a>
       </motion.div>
     </div>
