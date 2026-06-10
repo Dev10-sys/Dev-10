@@ -49,7 +49,7 @@ export function TopBar() {
   return (
     <div className="h-8 w-full bg-black/50 backdrop-blur-md text-white text-sm font-medium flex items-center justify-between px-4 select-none z-50 fixed top-0 left-0 right-0">
       <div className="flex items-center gap-4 cursor-default">
-        <span className="hover:bg-white/10 px-2 py-0.5 rounded transition-colors">Activities</span>
+        <span className="hover:bg-white/10 px-2 py-0.5 rounded transition-colors">Dev's OS</span>
       </div>
 
       <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2 hover:bg-white/10 px-3 py-0.5 rounded transition-colors cursor-default font-bold">

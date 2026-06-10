@@ -18,8 +18,8 @@
   "profile": {
     "location": "Bangalore, India",
     "education": "System Design & Security Hardening",
-    "shortBio": "I'm a B.Tech CS student specializing in AI/ML.",
-    "longBio": "I'm a software engineer based in Bangalore. I focus on full-stack web development, Linux infrastructure, and contributing to open source projects. I currently contribute to Sugar Labs as part of Google Summer of Code.",
+    "shortBio": "B.Tech CS with specialization in AI/ML.",
+    "longBio": "I am a Software and System Engineer based in Bangalore, India. I specialize in full-stack development, Linux infrastructure, and blockchain protocols. I officially contributed to Sugar Labs through Google Summer of Code (GSoC), and to WEB3J (an Ethereum library) through the LFX Mentorship program.",
     "skills": {
       "Systems & Infrastructure": [
         "Linux",
