@@ -14,12 +14,26 @@ export function TechnicalBackground() {
 
     let animationFrameId: number;
     let particles: Particle[] = [];
+    const mouse = { x: -1000, y: -1000 };
 
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       initParticles();
     };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    };
+
+    const handleMouseOut = () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseout", handleMouseOut);
 
     class Particle {
       x: number;
@@ -37,6 +51,26 @@ export function TechnicalBackground() {
       update() {
         if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
         if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+        // Interactive mouse magnetic effect
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        
+        if (dist < 200) {
+          const force = (200 - dist) / 200;
+          this.vx += (dx / dist) * force * 0.03;
+          this.vy += (dy / dist) * force * 0.03;
+        }
+
+        // Apply friction to keep speeds reasonable
+        this.vx *= 0.99;
+        this.vy *= 0.99;
+
+        // Add base velocity if too slow
+        if (Math.abs(this.vx) < 0.2) this.vx += (Math.random() - 0.5) * 0.1;
+        if (Math.abs(this.vy) < 0.2) this.vy += (Math.random() - 0.5) * 0.1;
+
         this.x += this.vx;
         this.y += this.vy;
       }
@@ -45,14 +79,17 @@ export function TechnicalBackground() {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(56, 189, 248, 0.5)"; // primary color
+        ctx.fillStyle = "rgba(56, 189, 248, 0.8)";
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = "rgba(56, 189, 248, 1)";
         ctx.fill();
+        ctx.shadowBlur = 0; // reset
       }
     }
 
     const initParticles = () => {
       particles = [];
-      const numParticles = Math.floor((canvas.width * canvas.height) / 15000); // adjust density
+      const numParticles = Math.floor((canvas.width * canvas.height) / 12000); // Density
       for (let i = 0; i < numParticles; i++) {
         particles.push(new Particle());
       }
@@ -60,6 +97,7 @@ export function TechnicalBackground() {
 
     const drawLines = () => {
       for (let i = 0; i < particles.length; i++) {
+        // Draw lines between particles
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
@@ -67,12 +105,31 @@ export function TechnicalBackground() {
 
           if (distance < 150) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(56, 189, 248, ${1 - distance / 150})`; // primary color fade
-            ctx.lineWidth = 1;
+            // Alternate colors for a flowing multi-color GTK4 vibe
+            if (i % 4 === 0) {
+              ctx.strokeStyle = `rgba(217, 70, 239, ${1 - distance / 150})`; // Fuchsia pink
+            } else {
+              ctx.strokeStyle = `rgba(56, 189, 248, ${1 - distance / 150})`; // Sky blue
+            }
+            ctx.lineWidth = 1.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.stroke();
           }
+        }
+        
+        // Draw interactive lines from mouse to particles
+        const mdx = mouse.x - particles[i].x;
+        const mdy = mouse.y - particles[i].y;
+        const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+        
+        if (mdist < 250) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(56, 189, 248, ${(1 - mdist / 250) * 0.8})`; 
+            ctx.lineWidth = 2;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.stroke();
         }
       }
     };
@@ -81,9 +138,9 @@ export function TechnicalBackground() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       // Draw grid
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.03)";
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.02)";
       ctx.lineWidth = 1;
-      const gridSize = 50;
+      const gridSize = 60;
       for (let x = 0; x < canvas.width; x += gridSize) {
         ctx.beginPath();
         ctx.moveTo(x, 0);
@@ -112,6 +169,8 @@ export function TechnicalBackground() {
 
     return () => {
       window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseout", handleMouseOut);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
@@ -119,7 +178,7 @@ export function TechnicalBackground() {
   return (
     <div className="fixed inset-0 -z-20 pointer-events-none">
       <canvas ref={canvasRef} className="block w-full h-full" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#020617]/50 to-[#050505] opacity-80" />
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#020617]/70 to-[#050505] opacity-90" />
     </div>
   );
 }
