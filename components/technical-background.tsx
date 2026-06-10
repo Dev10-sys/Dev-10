@@ -45,7 +45,7 @@ export function TechnicalBackground() {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(247, 147, 26, 0.5)"; // primary color
+        ctx.fillStyle = "rgba(56, 189, 248, 0.5)"; // primary color
         ctx.fill();
       }
     }
@@ -67,7 +67,7 @@ export function TechnicalBackground() {
 
           if (distance < 150) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(247, 147, 26, ${1 - distance / 150})`; // primary color fade
+            ctx.strokeStyle = `rgba(56, 189, 248, ${1 - distance / 150})`; // primary color fade
             ctx.lineWidth = 1;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -119,7 +119,7 @@ export function TechnicalBackground() {
   return (
     <div className="fixed inset-0 -z-20 pointer-events-none">
       <canvas ref={canvasRef} className="block w-full h-full" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#050505] opacity-50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#020617]/50 to-[#050505] opacity-80" />
     </div>
   );
 }

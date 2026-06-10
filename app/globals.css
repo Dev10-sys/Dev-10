@@ -12,7 +12,7 @@
   --popover: #ffffff;
   --popover-foreground: #09090b;
 
-  --primary: #f7931a;
+  --primary: #38bdf8;
   --primary-foreground: #ffffff;
 
   --secondary: #f4f4f5;
@@ -44,7 +44,7 @@
   --card-foreground: #ffffff;
   --popover: #0a0a0a;
   --popover-foreground: #ffffff;
-  --primary: #f7931a;
+  --primary: #38bdf8;
   --primary-foreground: #000000;
   --secondary: #111111;
   --secondary-foreground: #fafafa;
@@ -139,12 +139,12 @@ html {
 
 .modern-card:hover {
   border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 40px rgba(247, 147, 26, 0.03);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.03);
   transform: translateY(-4px);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary), #ffbd2e);
+  background: linear-gradient(135deg, var(--primary), #0284c7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
