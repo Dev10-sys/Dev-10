@@ -68,7 +68,7 @@ export function OpenSourcePreview() {
                 )}
                 <div>
                   <h3 className="text-lg font-black text-foreground">{org.name}</h3>
-                  <div className="text-xs font-bold text-primary uppercase tracking-wide">{org.role}</div>
+                  <div className="text-xs font-bold uppercase tracking-wide" style={{ color: org.color || 'var(--primary)' }}>{org.role}</div>
                 </div>
               </div>
             </div>
@@ -81,7 +81,7 @@ export function OpenSourcePreview() {
               <h4 className="text-xs font-bold text-foreground mb-3">Key Contributions</h4>
               {org.contributions.slice(0, 2).map((item, j) => (
                 <div key={j} className="flex items-start gap-2 text-xs text-muted-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mt-1 shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full mt-1 shrink-0 opacity-70" style={{ backgroundColor: org.color || 'var(--primary)' }} />
                   <span className="leading-snug">{item}</span>
                 </div>
               ))}

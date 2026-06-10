@@ -52,20 +52,7 @@ export function TechnicalBackground() {
         if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
         if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
 
-        // Interactive mouse magnetic effect
-        const dx = mouse.x - this.x;
-        const dy = mouse.y - this.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        
-        if (dist < 200) {
-          const force = (200 - dist) / 200;
-          this.vx += (dx / dist) * force * 0.03;
-          this.vy += (dy / dist) * force * 0.03;
-        }
-
-        // Apply friction to keep speeds reasonable
-        this.vx *= 0.99;
-        this.vy *= 0.99;
+        // Particles just bounce and move at constant speed
 
         // Add base velocity if too slow
         if (Math.abs(this.vx) < 0.2) this.vx += (Math.random() - 0.5) * 0.1;
@@ -79,9 +66,9 @@ export function TechnicalBackground() {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(56, 189, 248, 0.8)";
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = "rgba(56, 189, 248, 1)";
+        ctx.fillStyle = "rgba(247, 147, 26, 0.8)";
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = "rgba(247, 147, 26, 0.5)";
         ctx.fill();
         ctx.shadowBlur = 0; // reset
       }
@@ -105,11 +92,11 @@ export function TechnicalBackground() {
 
           if (distance < 150) {
             ctx.beginPath();
-            // Alternate colors for a flowing multi-color GTK4 vibe
+            // Alternate colors for a flowing tech vibe
             if (i % 4 === 0) {
-              ctx.strokeStyle = `rgba(217, 70, 239, ${1 - distance / 150})`; // Fuchsia pink
+              ctx.strokeStyle = `rgba(200, 200, 200, ${1 - distance / 150})`; // Silver
             } else {
-              ctx.strokeStyle = `rgba(56, 189, 248, ${1 - distance / 150})`; // Sky blue
+              ctx.strokeStyle = `rgba(247, 147, 26, ${1 - distance / 150})`; // Orange
             }
             ctx.lineWidth = 1.5;
             ctx.moveTo(particles[i].x, particles[i].y);
@@ -125,7 +112,7 @@ export function TechnicalBackground() {
         
         if (mdist < 250) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(56, 189, 248, ${(1 - mdist / 250) * 0.8})`; 
+            ctx.strokeStyle = `rgba(247, 147, 26, ${(1 - mdist / 250) * 0.8})`; 
             ctx.lineWidth = 2;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(mouse.x, mouse.y);
@@ -176,9 +163,9 @@ export function TechnicalBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 -z-20 pointer-events-none">
+    <div className="fixed inset-0 z-0 pointer-events-none">
       <canvas ref={canvasRef} className="block w-full h-full" />
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#020617]/70 to-[#050505] opacity-90" />
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#020617]/40 to-[#050505] opacity-90" />
     </div>
   );
 }

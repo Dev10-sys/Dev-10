@@ -92,7 +92,7 @@ export function Desktop() {
   };
 
   return (
-    <div className="relative w-full h-screen desktop-bg overflow-hidden text-foreground">
+    <div className="relative w-full h-screen desktop-bg overflow-hidden text-foreground z-10">
       <TopBar />
 
       {/* Mac/Linux Style Dock */}

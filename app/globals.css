@@ -12,8 +12,8 @@
   --popover: #ffffff;
   --popover-foreground: #09090b;
 
-  --primary: #38bdf8;
-  --primary-foreground: #ffffff;
+  --primary: #f7931a;
+  --primary-foreground: #000000;
 
   --secondary: #f4f4f5;
   --secondary-foreground: #18181b;
@@ -44,7 +44,7 @@
   --card-foreground: #ffffff;
   --popover: #0a0a0a;
   --popover-foreground: #ffffff;
-  --primary: #38bdf8;
+  --primary: #f7931a;
   --primary-foreground: #000000;
   --secondary: #111111;
   --secondary-foreground: #fafafa;
@@ -139,12 +139,12 @@ html {
 
 .modern-card:hover {
   border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.03);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 40px rgba(247, 147, 26, 0.03);
   transform: translateY(-4px);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary), #0284c7);
+  background: linear-gradient(135deg, var(--primary), #ffbd2e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -170,7 +170,7 @@ html {
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(56, 189, 248, 0) 70%);
+  background: radial-gradient(circle, rgba(247, 147, 26, 0.06) 0%, rgba(247, 147, 26, 0) 70%);
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: -10;
@@ -195,8 +195,8 @@ html {
 }
 
 .gtk-headerbar {
-  background: linear-gradient(to bottom, rgba(56, 56, 56, 0.4), rgba(48, 48, 48, 0.4));
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(to bottom, rgba(40, 40, 40, 0.8), rgba(30, 30, 30, 0.8));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: space-between;

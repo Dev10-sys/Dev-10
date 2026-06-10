@@ -170,6 +170,7 @@
         "name": "SugarLabs",
         "logo": "https://github.com/sugarlabs.png",
         "tagline": "Linux Desktop Environment — Python / GTK",
+        "color": "#10b981",
         "role": "Core contributor to Sugar Learning Environment.",
         "contributions": [
           "Fixed datastore restart handling after DBus disconnect",
@@ -190,6 +191,7 @@
         "name": "Web3j (LFDT)",
         "logo": "https://github.com/web3j.png",
         "tagline": "Blockchain protocol fixes and JVM-level reliability improvements",
+        "color": "#3b82f6",
         "role": "Contributor",
         "contributions": [
           "Fixed EIP-4844 transaction encoding impacting signing correctness",
@@ -213,6 +215,7 @@
         "name": "OpenSSF (RSTUF)",
         "logo": "https://github.com/repository-service-tuf.png",
         "tagline": "Production security hardening across distributed services",
+        "color": "#0ea5e9",
         "role": "Contributor",
         "contributions": [
           "Enforced non-root container execution across distributed microservices",
@@ -241,6 +244,7 @@
         "name": "Hyperledger Cacti",
         "logo": "https://github.com/hyperledger.png",
         "tagline": "Enterprise blockchain infra, dependency security",
+        "color": "#22c55e",
         "role": "Contributor",
         "contributions": [
           "Fixed docker test crash loops affecting CI stability",
@@ -267,6 +271,7 @@
         "name": "Hyperledger Identus",
         "logo": "https://github.com/hyperledger.png",
         "tagline": "Enterprise SSI and Verifiable Credentials SDK",
+        "color": "#6366f1",
         "role": "Contributor",
         "contributions": [
           "Fixed runtime errors in DIDComm invitation tests",
@@ -287,6 +292,7 @@
         "name": "SONiC",
         "logo": "https://github.com/sonic-net.png",
         "tagline": "Network infrastructure testing",
+        "color": "#f43f5e",
         "role": "Contributor",
         "contributions": [
           "Enabled IPv6-only environment testing for COPP",
@@ -308,6 +314,7 @@
         "name": "Chicago Pediatric Cancer Data Commons",
         "logo": "https://github.com/chicagopcdc.png",
         "tagline": "Healthcare ML pipeline fixes",
+        "color": "#eab308",
         "role": "Contributor",
         "contributions": [
           "Fixed execution issues in ML pipeline notebooks",
@@ -329,6 +336,7 @@
         "name": "CHAOSS",
         "logo": "https://github.com/chaoss.png",
         "tagline": "Open Source Metrics & Data Science",
+        "color": "#a855f7",
         "role": "Contributor",
         "contributions": [
           "Bugzilla REST pagination failure handling",
