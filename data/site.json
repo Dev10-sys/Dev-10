@@ -184,7 +184,7 @@
           "GTK",
           "D-Bus"
         ],
-        "link": "https://github.com/sugarlabs/sugar/pulls?q=is%3Apr+author%3ADev10-sys"
+        "link": "https://github.com/sugarlabs/sugar/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       },
       {
         "name": "Web3j (LFDT)",
@@ -207,7 +207,7 @@
           "Ethereum",
           "EIP-4844"
         ],
-        "link": "https://github.com/LFDT-web3j/web3j/pulls?q=is%3Apr+author%3ADev10-sys"
+        "link": "https://github.com/LFDT-web3j/web3j/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       },
       {
         "name": "OpenSSF (RSTUF)",
@@ -235,7 +235,7 @@
           "Docker",
           "Security"
         ],
-        "link": "https://github.com/repository-service-tuf/repository-service-tuf/pulls?q=is%3Apr+author%3ADev10-sys"
+        "link": "https://github.com/repository-service-tuf/repository-service-tuf/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       },
       {
         "name": "Hyperledger Cacti",
@@ -261,7 +261,7 @@
           "Docker",
           "Blockchain"
         ],
-        "link": "https://github.com/hyperledger-cacti/cacti/pulls?q=is%3Apr+author%3ADev10-sys"
+        "link": "https://github.com/hyperledger-cacti/cacti/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       },
       {
         "name": "Hyperledger Identus",
@@ -281,7 +281,7 @@
         "links": [
           "https://github.com/hyperledger-identus/sdk-ts/pull/591"
         ],
-        "link": "https://github.com/hyperledger-identus/sdk-ts/pulls?q=is%3Apr+author%3ADev10-sys"
+        "link": "https://github.com/hyperledger-identus/sdk-ts/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       },
       {
         "name": "SONiC",
@@ -302,7 +302,7 @@
           "IPv6",
           "Networking"
         ],
-        "link": "https://github.com/sonic-net/sonic-mgmt/pulls?q=is%3Apr+author%3ADev10-sys"
+        "link": "https://github.com/sonic-net/sonic-mgmt/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       },
       {
         "name": "Chicago Pediatric Cancer Data Commons",
@@ -323,7 +323,7 @@
           "Jupyter",
           "Machine Learning"
         ],
-        "link": "https://github.com/chicagopcdc/Automated-Matching-of-Patients-to-Clinical-Trials/pulls?q=is%3Apr+author%3ADev10-sys"
+        "link": "https://github.com/chicagopcdc/Automated-Matching-of-Patients-to-Clinical-Trials/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       },
       {
         "name": "CHAOSS",
@@ -345,7 +345,7 @@
           "Data Analytics",
           "API"
         ],
-        "link": "https://github.com/chaoss/grimoirelab-perceval/pulls?q=is%3Apr+author%3ADev10-sys"
+        "link": "https://github.com/chaoss/grimoirelab-perceval/pulls?q=is%3Apr+author%3ADev10-sys+is%3Amerged"
       }
     ]
   },
