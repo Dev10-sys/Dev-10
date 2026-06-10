@@ -73,7 +73,7 @@ export const metadata: Metadata = {
 };
 
 import { CursorGlow } from "@/components/cursor-glow";
-import { GlobalBackground } from "@/components/global-background";
+import { TechnicalBackground } from "@/components/technical-background";
 
 export default function RootLayout({
   children,
@@ -83,7 +83,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} overflow-hidden`}>
-        <GlobalBackground />
+        <TechnicalBackground />
         <Suspense fallback={null}>
           <main className="h-screen w-screen overflow-hidden">
             {children}
