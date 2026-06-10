@@ -52,13 +52,13 @@ export function Window({
         
         <div className="gtk-window-controls">
           <button className="gtk-circle-btn" onClick={() => {}} title="Minimize">
-            <Minus className="w-3 h-3 text-white/70" />
+            <Minus className="w-4 h-4 text-white/70" />
           </button>
           <button className="gtk-circle-btn" onClick={() => setIsMaximized(!isMaximized)} title="Maximize">
-            <Maximize2 className="w-3 h-3 text-white/70" />
+            <Maximize2 className="w-4 h-4 text-white/70" />
           </button>
           <button className="gtk-circle-btn close" onClick={onClose} title="Close">
-            <X className="w-3 h-3 text-white/70" />
+            <X className="w-4 h-4 text-white/70" />
           </button>
         </div>
       </div>

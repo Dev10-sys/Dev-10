@@ -78,9 +78,7 @@ export function Desktop() {
   const [activeWindow, setActiveWindow] = useState<string | null>(null);
 
   const openApp = (id: string) => {
-    if (!openWindows.includes(id)) {
-      setOpenWindows([...openWindows, id]);
-    }
+    setOpenWindows([id]);
     setActiveWindow(id);
   };
 
@@ -96,10 +94,13 @@ export function Desktop() {
       <TopBar />
 
       {/* Centered Watermark */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-        <h1 className="text-[12vw] font-black tracking-tighter text-white/5 select-none" style={{ textShadow: "0 0 60px rgba(247, 147, 26, 0.1)" }}>
+      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0">
+        <h1 className="text-[12vw] font-black tracking-tighter text-transparent select-none bg-clip-text flowing-text pb-4" style={{ WebkitTextStroke: "1px rgba(255,255,255,0.05)", textShadow: "0 0 60px rgba(247, 147, 26, 0.15)" }}>
           DEV'S OS
         </h1>
+        <div className="text-white/30 text-xs md:text-sm font-mono tracking-widest mt-[-2vw] uppercase">
+          Fun Fact: Midnight photography of the moon with coffee.
+        </div>
       </div>
 
       {/* Mac/Linux Style Dock */}

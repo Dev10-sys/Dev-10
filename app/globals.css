@@ -150,6 +150,28 @@ html {
   background-clip: text;
 }
 
+.flowing-text {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.02) 0px,
+    rgba(255,255,255,0.02) 10px,
+    rgba(255,255,255,0.1) 10px,
+    rgba(255,255,255,0.1) 20px,
+    rgba(247, 147, 26, 0.15) 20px,
+    rgba(247, 147, 26, 0.15) 30px
+  );
+  background-size: 200% 200%;
+  animation: flowing-bg 15s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes flowing-bg {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
 .page-transition {
   animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -222,8 +244,8 @@ html {
 }
 
 .gtk-circle-btn {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: none;
   display: flex;
