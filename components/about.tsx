@@ -18,7 +18,7 @@ export function About() {
   const profile = site.profile;
 
   const systemInfo = [
-    { key: "OS", value: "Ubuntu / Arch" },
+    { key: "OS", value: "Linux (Debian / Fedora / Arch)" },
     { key: "Role", value: "Full-Stack + Systems Dev" },
     { key: "Focus", value: "Blockchain · Security · AI" },
     { key: "Status", value: "Open to Opportunities", highlight: true },
