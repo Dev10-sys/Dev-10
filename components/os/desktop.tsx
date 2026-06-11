@@ -111,7 +111,7 @@ export function Desktop() {
           
           <div className="text-white/30 text-xs md:text-sm font-medium tracking-[0.4em] uppercase mt-2 md:mt-0 select-none relative z-10"
                style={{ textShadow: "0 2px 10px rgba(0,0,0,0.8)" }}>
-            Systems • Security • Infrastructure
+            Midnight photography of the moon with coffee.
           </div>
         </div>
       </div>
