@@ -165,7 +165,7 @@ export function TechnicalBackground() {
   return (
     <div className="fixed inset-0 z-0 pointer-events-none">
       <canvas ref={canvasRef} className="block w-full h-full" />
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#020617]/40 to-[#050505] opacity-90" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1e1b4b]/40 via-[#050505]/90 to-black opacity-90" />
     </div>
   );
 }

@@ -95,11 +95,11 @@ export function Desktop() {
 
       {/* Centered Watermark */}
       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0">
-        <h1 className="text-[12vw] font-black tracking-tighter text-transparent select-none bg-clip-text flowing-text pb-4" style={{ WebkitTextStroke: "1px rgba(255,255,255,0.05)", textShadow: "0 0 60px rgba(247, 147, 26, 0.15)" }}>
+        <h1 className="text-[14vw] font-black tracking-tighter text-transparent select-none pb-4" style={{ WebkitTextStroke: "2px rgba(255,255,255,0.03)", textShadow: "0 0 80px rgba(247, 147, 26, 0.08)" }}>
           DEV'S OS
         </h1>
-        <div className="text-white/30 text-xs md:text-sm font-mono tracking-widest mt-[-2vw] uppercase">
-          Fun Fact: Midnight photography of the moon with coffee.
+        <div className="text-white/20 text-xs md:text-sm font-mono tracking-[0.3em] mt-[-3vw] uppercase">
+          Midnight photography of the moon with coffee.
         </div>
       </div>
 
