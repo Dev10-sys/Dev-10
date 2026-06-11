@@ -93,13 +93,26 @@ export function Desktop() {
     <div className="relative w-full h-screen desktop-bg overflow-hidden text-foreground z-10">
       <TopBar />
 
-      {/* Centered Watermark */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0">
-        <h1 className="text-[14vw] font-black tracking-tighter text-transparent select-none pb-4" style={{ WebkitTextStroke: "2px rgba(255,255,255,0.03)", textShadow: "0 0 80px rgba(247, 147, 26, 0.08)" }}>
-          DEV'S OS
-        </h1>
-        <div className="text-white/20 text-xs md:text-sm font-mono tracking-[0.3em] mt-[-3vw] uppercase">
-          Midnight photography of the moon with coffee.
+      {/* Premium Ambient Background Text */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0 overflow-hidden">
+        <div className="relative flex flex-col items-center">
+          {/* Subtle Ambient Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[20vw] bg-primary/10 blur-[100px] rounded-full mix-blend-screen" />
+          
+          <h1 className="text-[12vw] md:text-[14vw] leading-none font-black tracking-tighter select-none relative z-10"
+              style={{
+                background: "linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.03) 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                filter: "drop-shadow(0 10px 40px rgba(0,0,0,0.5))"
+              }}>
+            DEV'S OS
+          </h1>
+          
+          <div className="text-white/30 text-xs md:text-sm font-medium tracking-[0.4em] uppercase mt-2 md:mt-0 select-none relative z-10"
+               style={{ textShadow: "0 2px 10px rgba(0,0,0,0.8)" }}>
+            Systems • Security • Infrastructure
+          </div>
         </div>
       </div>
 
